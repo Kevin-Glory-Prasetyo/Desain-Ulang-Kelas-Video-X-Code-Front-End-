@@ -1,0 +1,184 @@
+/* ---- General Styles ---- */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #121212; /* Latar belakang sangat gelap */
+    color: #f0f0f0; /* Teks default berwarna putih keabuan */
+}
+
+/* ---- Header and Footer ---- */
+.main-header, .main-footer {
+    background-color: #1a1a1a; /* Warna sedikit lebih terang dari body */
+    padding: 20px;
+    text-align: center;
+}
+
+.main-header h1 {
+    color: #ffffff;
+}
+
+/* ---- Main Section ---- */
+.file-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(120deg, #4aa9d2, #164251, #11232c); /* Sama dengan warna body */
+}
+
+.file-section h2 {
+    margin-bottom: 40px;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+/* ---- File Cards Container ---- */
+.file-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ---- File Card Styles ---- */
+.file-card {
+    text-align: center;
+    cursor: pointer;
+    background: #ffffff;
+    border-radius: 8px;
+    /* Bayangan biru gelap, lebih sesuai dengan background */
+    box-shadow: 8px 8px 0px rgba(17, 35, 44, 0.6); /* #11232c dengan opacity */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #333333;
+    padding-bottom: 20px;
+}
+
+.file-card:hover {
+    transform: translateY(-8px);
+    /* Bayangan lebih kuat saat hover */
+    box-shadow: 12px 12px 0px rgba(22, 66, 81, 0.7); /* #164251 dengan opacity */
+}
+
+
+
+.file-card img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px 6px 0 0;
+}
+
+.file-card h3 {
+    margin: 15px 20px 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    min-height: 40px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: #222222;
+}
+
+.file-card .file-date,
+.file-card .file-price {
+    margin: 0 20px 5px 20px;
+    font-size: 14px;
+    color: #666666;
+}
+
+.file-card .file-price {
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+}
+
+.file-card a {
+    display: inline-block;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #1a1a1a;
+    border: 1px solid #1a1a1a;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.file-card a:hover {
+    color: #ffffff;
+    background: #1a1a1a;
+}
+
+/* ---- Pagination Controls Styles ---- */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    margin-bottom: 60px;
+}
+
+.pagination-btn {
+    padding: 8px 16px;
+    border: 1px solid #f0f0f0;
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+.page-btn {
+    padding: 8px 12px;
+    border: 1px solid #f0f0f0;
+    background-color: transparent;
+    color: #f0f0f0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 14px;
+}
+
+.page-btn.active {
+    background-color: #f0f0f0;
+    color: #1a1a1a;
+    border-color: #f0f0f0;
+}
+
+.page-btn:hover:not(.active) {
+    background-color: #333333;
+}
+
+/* ---- Media Queries ---- */
+@media (max-width: 992px) {
+    .file-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .file-container {
+        grid-template-columns: 1fr;
+    }
+}
