@@ -23,13 +23,13 @@ body {
 .file-section {
     padding: 60px 20px;
     text-align: center;
-    background: linear-gradient(120deg, #4aa9d2, #164251, #11232c); /* Sama dengan warna body */
+    background: #ffffff;
 }
 
 .file-section h2 {
     margin-bottom: 40px;
     font-size: 24px;
-    color: #ffffff;
+    color: #000000;
 }
 
 /* ---- File Cards Container ---- */
@@ -50,7 +50,7 @@ body {
     /* Bayangan biru gelap, lebih sesuai dengan background */
     box-shadow: 8px 8px 0px rgba(17, 35, 44, 0.6); /* #11232c dengan opacity */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: #333333;
+    color: #000000;
     padding-bottom: 20px;
 }
 
