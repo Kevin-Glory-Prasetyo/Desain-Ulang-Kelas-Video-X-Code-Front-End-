@@ -16,8 +16,15 @@ header {
     padding: 10px 50px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: fixed;
     z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+main.container {
+    margin-top: 50px;
 }
 
 .header-kiri, 
@@ -141,10 +148,11 @@ nav a {
 .gambarProduk img {
     background-size: cover;
     width: 100%;
+    border-radius: 20px;
 }
 
 .gambarProduk {
-    border: 1px solid rgba(0,0,0,0.5);
+    /* border: 1px solid rgba(0,0,0,0.5); */
     background-image: url(produk.jpg);
     background-size: cover;
 }
