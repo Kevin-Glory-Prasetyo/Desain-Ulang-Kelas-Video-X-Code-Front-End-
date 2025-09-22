@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+/* == HEADER == */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
+}
+
+.header-kiri, 
+.header-kanan {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 35px;
+    margin-right: 20px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bagian-profil {
+    display: flex;
+    align-items: center;
+    border-left: 1px solid #ddd;
+    padding-left: 25px;
+    margin-left: 25px;
+    position: relative;
+}
+
+.foto-profil {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.detail-pengguna p {
+    margin: 0;
+    line-height: 1.3;
+}
+
+.nama-pengguna {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.email-pengguna {
+    font-size: 12px;
+    color: #777;
+}
+
+.panah-bawah {
+    margin-left: 15px;
+    color: black;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* Dropdown */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    min-width: 180px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+}
+
+/* == DETAIL PRODUK == */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.judulProduk {
+    margin-bottom: 20px;
+    width: 700px;
+}
+
+.informasiProduk {
+    text-align: justify;
+}
+
+.detailProduk {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.informasiProduk p {
+    color: black;
+    line-height: 1.6;
+}
+
+.gambarProduk img {
+    background-size: cover;
+    width: 100%;
+}
+
+.gambarProduk {
+    border: 1px solid rgba(0,0,0,0.5);
+    background-image: url(produk.jpg);
+    background-size: cover;
+}
+
+.aksi-pembelian {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tombol-beli {
+    flex-grow: 1;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tombol-beli:hover {
+    background-color: #218838;
+}
+
+.harga {
+    padding: 12px 20px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.checklist li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.checklist li::before {
+    content: "\f00c"; /* Font Awesome check icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #28a745;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+/* == FOOTER == */
+footer {
+    background-color: #3B5580;
+    color: white;
+    padding: 50px 80px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.logo-footer {
+    width: 150px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.deskripsi {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #e0e0e0;
+    max-width: 400px;
+}
+
+footer .tautan,
+footer .kontak {
+    margin-top: 10px;
+}
+
+footer p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+footer a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #cccccc;
+}
+
+footer .fa-whatsapp {
+    color: #25D366;
+}
+
+footer .fa-envelope {
+    color: #d44638;
+}
+
+.copyright {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid #5a739d;
+    font-size: 13px;
+}
+
+.copyright p {
+    margin: 0;
+}
+
+/* == RESPONSIVE == */
+@media (max-width: 992px) {
+    footer {
+        grid-template-columns: 1fr 1fr;
+    }
+    .footer-info {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 10px 20px;
+    }
+    nav, 
+    .detail-pengguna {
+        display: none;
+    }
+    .detailProduk {
+        grid-template-columns: 1fr;
+    }
+    footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .deskripsi {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .logo-footer {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer a {
+        justify-content: center;
+    }
+    .copyright {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* == ANIMASI FOOTER == */
+@keyframes fadeInGrow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+footer .deskripsi,
+footer .tautan,
+footer .kontak,
+footer .copyright {
+    animation: fadeInGrow 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+footer .deskripsi {
+    animation-delay: 0.3s;
+}
+
+footer .tautan {
+    animation-delay: 0.6s;
+}
+
+footer .kontak {
+    animation-delay: 0.9s;
+}
+
+footer .copyright {
+    animation-delay: 1.2s;
+}
