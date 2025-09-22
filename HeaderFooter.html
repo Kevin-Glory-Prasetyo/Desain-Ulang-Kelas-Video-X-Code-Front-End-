@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header & Footer</title>
+    <link rel="stylesheet" href="footerheader.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-kiri">
+            <img src="image/Xcode.png" alt="Logo Xcode" class="logo">
+        </div>
+        <div class="header-kanan">
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Histori Transaksi</a>
+            </nav>
+            <div class="bagian-profil">
+                <img src="image/profile.png" alt="Foto Profil" class="foto-profil">
+                <div class="detail-pengguna">
+                    <p class="nama-pengguna">Glen Daud</p>
+                    <p class="email-pengguna">glendaud@gmail.com</p>
+                </div>
+                <span class="panah-bawah"><i class="fa-solid fa-caret-down"></i></span>
+                
+                <div class="dropdown-menu" id="dropdown">
+                    <a href="#">Home</a>
+                    <a href="#">Histori Transaksi</a>
+                    <a href="#">Logout</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-info">
+            <img src="image/Xcode.png" alt="Logo Xcode Footer" class="logo-footer">
+            <p class="deskripsi">x-code training layanan dari perusahaan PT. Teknologi Server Indonesia, perseroan terbatas berbadan hukum yang bergerak di bidang Cyber Security.</p>
+        </div>
+        <div class="tautan">
+            <p><strong>TRAINING LINK</strong></p>
+            <a href="#">Website X-Code</a>
+            <a href="#">X-Code Professional</a>
+        </div>
+        <div class="kontak">
+            <p><strong>CONTACT US</strong></p>
+            <a href="https://wa.me/6285728917933">
+                <i class="fa-brands fa-whatsapp"></i> +62 857 2891 7933
+            </a>
+            <a href="mailto:admin@xcodetraining.com">
+                <i class="fa-solid fa-envelope"></i> admin@xcodetraining.com
+            </a>
+        </div>
+        <div class="copyright">
+            <p>Copyright By X-Code All Right Reserved</p>
+            <p>Privacy Policy</p>
+        </div>
+    </footer>
+
+    <!-- JS UNTUK DROPDOWN -->
+    <script>
+        const panah = document.querySelector('.panah-bawah');
+        const dropdown = document.getElementById('dropdown');
+
+        panah.addEventListener('click', () => {
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (!e.target.closest('.bagian-profil')) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
