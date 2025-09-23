@@ -1,6 +1,6 @@
 const fileData = [
   {
-    img: "image/Pixiv Fantasia T 01 4K.png",
+    img: "../image/Pixiv Fantasia T 01 4K.png",
     alt: "Video1",
     title:
       "Backup data secara otomatis di proxmox (VM, files & database) untuk keamanan data",
@@ -8,7 +8,7 @@ const fileData = [
     price: "Rp 50.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video2",
     title:
       "Belajar Mikrotik untuk Pemula – Konfigurasi Dasar untuk Kebutuhan Jaringan Komputer",
@@ -16,49 +16,49 @@ const fileData = [
     price: "Rp 75.000,00",
   },
   {
-    img: "image/Pixiv Fantasia T 02 4K.png",
+    img: "../image/Pixiv Fantasia T 02 4K.png",
     alt: "Video3",
     title: "Download belajar freebsd dan security hardening",
     date: "",
     price: "Rp 50.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video4",
     title: "Essential Hacking Web CMS Hacking & Security (WordPress & Joomla)",
     date: "5 Oktober 2024",
     price: "Rp 50.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video5",
     title: "Ethical Hacking & Exploit Development",
     date: "22 November 2024",
     price: "Rp 200.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video6",
     title: "Ethical Hacking dan Eksplorasi Kerentanan dalam OWASP Top 10",
     date: "27 Desember 2024",
     price: "Rp 150.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video7",
     title: "Ethical Web Application Hacking & Security V2",
     date: "1 November 2024",
     price: "Rp 100.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video8",
     title: "Membangun Apache Web Server dengan keamanan yang optimal V2",
     date: "16 Mei 2025",
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video9",
     title:
       "Membangun Infrastruktur Modern Berbasis HTTPS Reverse Proxy dengan Proxmox",
@@ -66,14 +66,14 @@ const fileData = [
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video10",
     title: "Membangun Server Monolith dengan Docker dengan cepat dan mudah",
     date: "",
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video11",
     title:
       "Membangun layanan server dengan platform PHP modern menggunakan FrankenPHP v2",
@@ -81,21 +81,21 @@ const fileData = [
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video12",
     title: "Nessus & Eksploitasi Kerentanan di Sistem & Aplikasi",
     date: "Mei 2025",
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video13",
     title: "Proxmox Virtual Environment (Proxmox VE) untuk kebutuhan server",
     date: "31 Januari 2025",
     price: "Rp 150.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video14",
     title:
       "Webinar Membangun Layanan Internet Kantor dengan Keamanan Maksimal menggunakan Mikrotik RouterOS v7",
@@ -103,14 +103,14 @@ const fileData = [
     price: "Rp 35.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video15",
     title: "Webinar X-code – Ethical network hacking & Security V2",
     date: "10 September 2024",
     price: "Rp 75.000,00",
   },
   {
-    img: "image/foto1.jpg",
+    img: "../image/foto1.jpg",
     alt: "Video16",
     title: "Windows Hacking & Security",
     date: "",

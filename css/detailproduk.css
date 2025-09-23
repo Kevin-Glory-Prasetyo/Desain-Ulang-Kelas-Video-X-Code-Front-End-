@@ -16,11 +16,19 @@ header {
     padding: 10px 50px;
     background-color: white;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: fixed;
     z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-.header-kiri, .header-kanan {
+main.container {
+    margin-top: 50px;
+}
+
+.header-kiri, 
+.header-kanan {
     display: flex;
     align-items: center;
 }
@@ -67,6 +75,7 @@ nav a {
 .nama-pengguna {
     font-weight: 600;
     font-size: 14px;
+    color: black;
 }
 
 .email-pengguna {
@@ -109,6 +118,106 @@ nav a {
     background: #f0f0f0;
 }
 
+/* == DETAIL PRODUK == */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.judulProduk {
+    margin-bottom: 20px;
+    width: 700px;
+}
+
+.informasiProduk {
+    text-align: justify;
+}
+
+.detailProduk {
+    display: grid;
+    grid-template-columns: 2fr 1.3fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.informasiProduk p {
+    color: black;
+    line-height: 1.6;
+}
+
+.gambarProduk img {
+    background-size: cover;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.gambarProduk {
+    /* border: 1px solid rgba(0,0,0,0.5); */
+    background-image: url(../image/produk.jpg);
+    background-size: cover;
+}
+
+.aksi-pembelian {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.tombol-beli {
+    flex-grow: 1;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tombol-beli:hover {
+    background-color: #218838;
+}
+
+.harga {
+    padding: 12px 20px;
+    background-color: #dc3545;
+    color: white;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.checklist {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.checklist li {
+    padding-left: 25px;
+    position: relative;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.checklist li::before {
+    content: "\f00c"; /* Font Awesome check icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #28a745;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
 
 /* == FOOTER == */
 footer {
@@ -136,7 +245,8 @@ footer {
     max-width: 400px;
 }
 
-footer .tautan, footer .kontak {
+footer .tautan,
+footer .kontak {
     margin-top: 10px;
 }
 
@@ -182,7 +292,6 @@ footer .fa-envelope {
     margin: 0;
 }
 
-
 /* == RESPONSIVE == */
 @media (max-width: 992px) {
     footer {
@@ -197,7 +306,8 @@ footer .fa-envelope {
     header {
         padding: 10px 20px;
     }
-    nav, .detail-pengguna {
+    nav, 
+    .detail-pengguna {
         display: none;
     }
     .detailProduk {
@@ -223,4 +333,40 @@ footer .fa-envelope {
         align-items: center;
         gap: 10px;
     }
+}
+
+/* == ANIMASI FOOTER == */
+@keyframes fadeInGrow {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+footer .deskripsi,
+footer .tautan,
+footer .kontak,
+footer .copyright {
+    animation: fadeInGrow 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+footer .deskripsi {
+    animation-delay: 0.3s;
+}
+
+footer .tautan {
+    animation-delay: 0.6s;
+}
+
+footer .kontak {
+    animation-delay: 0.9s;
+}
+
+footer .copyright {
+    animation-delay: 1.2s;
 }

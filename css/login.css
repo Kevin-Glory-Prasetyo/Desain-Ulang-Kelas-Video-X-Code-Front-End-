@@ -80,7 +80,7 @@ body {
 
 .side-panel {
   width: 50%;
-  background-image: url(image/backLogin.jpeg);
+  background-image: url(../image/backLogin.jpeg);
   background-size: cover;
   background-position: center;
   color: white;
