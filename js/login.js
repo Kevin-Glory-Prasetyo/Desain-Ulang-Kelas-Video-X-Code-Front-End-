@@ -27,7 +27,7 @@ registerBtn.addEventListener("click", async () => {
   ).value;
 
   try {
-    const res = await fetch("http://localhost:3000/auth/userRegister", {
+    const res = await fetch("http://localhost:5000/auth/userRegister", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ loginBtn.addEventListener("click", async () => {
   ).value;
 
   try {
-    const res = await fetch("http://localhost:3000/auth/userLogin", {
+    const res = await fetch("http://localhost:5000/auth/userLogin", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,13 +74,13 @@ loginBtn.addEventListener("click", async () => {
         user_email: email,
         user_password: password,
       }),
+      credentials: "include",
     });
 
     const data = await res.json();
 
     if (data.statusCode === 200) {
       alert(data.message);
-      sessionStorage.setItem("user_email", data.email);
       window.location.href = "filelist.html";
     } else if (data.statusCode === 400) {
       alert(data.message);
@@ -92,5 +92,20 @@ loginBtn.addEventListener("click", async () => {
   } catch (err) {
     console.error(err);
     alert("Terjadi kesalahan server.");
+  }
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("http://localhost:5000/auth/checkLogin", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (res.ok) {
+      window.location.href = "filelist.html";
+    }
+  } catch (err) {
+    console.log("Belum login atau token tidak valid");
   }
 });

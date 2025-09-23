@@ -1,3 +1,64 @@
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("http://localhost:5000/auth/filelist", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (res.status === 401 || res.status === 403) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const data = await res.json();
+
+    if (res.ok) {
+      const namaPengguna = document.querySelector(".nama-pengguna");
+      const emailPengguna = document.querySelector(".email-pengguna");
+
+      namaPengguna.textContent =
+      data.user.first_name + " " + data.user.last_name;
+      emailPengguna.textContent = data.user.email;
+
+      console.log("Data user:", data.user);
+    } else {
+      alert(data.message || "Terjadi kesalahan");
+    }
+  } catch (err) {
+    console.error("Fetch gagal:", err);
+    window.location.href = "login.html";
+  }
+});
+
+
+
+const logoutBtn = document.getElementById("logoutBtn");
+
+logoutBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch("http://localhost:5000/auth/logout", {
+      method: "POST",
+      credentials: "include",
+    });
+
+    const data = await res.json();
+
+    if (data.statusCode === 200) {
+      window.location.href = "login.html"; 
+    } else {
+      alert(data.message || "Gagal logout");
+    }
+  } catch (err) {
+    console.error(err);
+    window.location.href = "login.html"; 
+  }
+});
+
+
+
+
 const fileData = [
   {
     img: "../image/Pixiv Fantasia T 01 4K.png",
@@ -197,4 +258,8 @@ window.addEventListener("click", (e) => {
     dropdown.style.display = "none";
   }
 });
+
+
+
+
 
