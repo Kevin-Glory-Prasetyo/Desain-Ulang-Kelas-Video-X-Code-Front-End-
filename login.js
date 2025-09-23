@@ -15,23 +15,29 @@ toLogin.addEventListener("click", (e) => {
 const registerBtn = document.querySelector(".sign-up button");
 
 registerBtn.addEventListener("click", async () => {
-  const firstName = document.querySelector(".sign-up input[placeholder='First Name']").value;
-  const lastName = document.querySelector(".sign-up input[placeholder='Last Name']").value;
+  const firstName = document.querySelector(
+    ".sign-up input[placeholder='First Name']"
+  ).value;
+  const lastName = document.querySelector(
+    ".sign-up input[placeholder='Last Name']"
+  ).value;
   const email = document.querySelector(".sign-up input[type='email']").value;
-  const password = document.querySelector(".sign-up input[type='password']").value;
+  const password = document.querySelector(
+    ".sign-up input[type='password']"
+  ).value;
 
   try {
     const res = await fetch("http://localhost:3000/auth/userRegister", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         user_first_name: firstName,
         user_last_name: lastName,
         user_email: email,
-        user_password: password
-      })
+        user_password: password,
+      }),
     });
 
     const data = await res.json();
@@ -43,8 +49,7 @@ registerBtn.addEventListener("click", async () => {
       alert(data.message);
     } else if (data.statusCode === 409) {
       alert(data.message);
-    } 
-
+    }
   } catch (err) {
     console.error(err);
     alert("Terjadi kesalahan server.");
@@ -55,33 +60,35 @@ const loginBtn = document.querySelector(".sign-in button");
 
 loginBtn.addEventListener("click", async () => {
   const email = document.querySelector(".sign-in input[type='email']").value;
-  const password = document.querySelector(".sign-in input[type='password']").value;
+  const password = document.querySelector(
+    ".sign-in input[type='password']"
+  ).value;
 
   try {
     const res = await fetch("http://localhost:3000/auth/userLogin", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         user_email: email,
-        user_password: password
-      })
+        user_password: password,
+      }),
     });
 
     const data = await res.json();
 
     if (data.statusCode === 200) {
-      alert(data.message); 
+      alert(data.message);
       sessionStorage.setItem("user_email", data.email);
       window.location.href = "filelist.html";
     } else if (data.statusCode === 400) {
-      alert(data.message); 
+      alert(data.message);
     } else if (data.statusCode === 401) {
       alert(data.message);
     } else if (data.statusCode === 404) {
       alert(data.message);
-    } 
+    }
   } catch (err) {
     console.error(err);
     alert("Terjadi kesalahan server.");

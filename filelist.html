@@ -1,117 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Webinar File Listing</title>
-    <link rel="stylesheet" href="filelist.css">
-</head>
-<body>
+    <link rel="stylesheet" href="filelist.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-kiri">
+        <img src="image/Xcode.png" alt="Logo Xcode" class="logo" />
+      </div>
+      <div class="header-kanan">
+        <nav>
+          <a href="#">Home</a>
+          <a href="#">Histori Transaksi</a>
+        </nav>
+        <div class="bagian-profil">
+          <img src="image/profile.png" alt="Foto Profil" class="foto-profil" />
+          <div class="detail-pengguna">
+            <p class="nama-pengguna">Glen Daud</p>
+            <p class="email-pengguna">glendaud@gmail.com</p>
+          </div>
+          <span class="panah-bawah"
+            ><i class="fa-solid fa-caret-down"></i
+          ></span>
 
-    <header class="main-header">
-        </header>
+          <div class="dropdown-menu" id="dropdown">
+            <a href="#">Home</a>
+            <a href="#">Histori Transaksi</a>
+            <a href="#">Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <section class="file-section">
-        <h2>Webinar File Listing</h2>
-        <div class="file-container" id="file-container">
-            </div>
+      <h2>Webinar File Listing</h2>
+      <div class="file-container" id="file-container"></div>
     </section>
 
     <div class="pagination-container">
-        <button id="prevBtn" class="pagination-btn">Previous</button>
-        <div id="pageNumbers" class="page-numbers"></div>
-        <button id="nextBtn" class="pagination-btn">Next</button>
+      <button id="prevBtn" class="pagination-btn">Prev</button>
+      <div id="pageNumbers" class="page-numbers"></div>
+      <button id="nextBtn" class="pagination-btn">Next</button>
     </div>
 
-    <footer class="main-footer">
-        </footer>
+    <footer>
+      <div class="footer-info">
+        <img
+          src="image/Xcode.png"
+          alt="Logo Xcode Footer"
+          class="logo-footer"
+        />
+        <p class="deskripsi">
+          x-code training layanan dari perusahaan PT. Teknologi Server
+          Indonesia, perseroan terbatas berbadan hukum yang bergerak di bidang
+          Cyber Security.
+        </p>
+      </div>
+      <div class="tautan">
+        <p><strong>TRAINING LINK</strong></p>
+        <a href="#">Website X-Code</a>
+        <a href="#">X-Code Professional</a>
+      </div>
+      <div class="kontak">
+        <p><strong>CONTACT US</strong></p>
+        <a href="https://wa.me/6285728917933">
+          <i class="fa-brands fa-whatsapp"></i> +62 857 2891 7933
+        </a>
+        <a href="mailto:admin@xcodetraining.com">
+          <i class="fa-solid fa-envelope"></i> admin@xcodetraining.com
+        </a>
+      </div>
+      <div class="copyright">
+        <p>Copyright By X-Code All Right Reserved</p>
+        <p>Privacy Policy</p>
+      </div>
+    </footer>
 
-    <script>
-        const fileData = [
-            { img: "image/Pixiv Fantasia T 01 4K.png", alt: "Video1", title: "Backup data secara otomatis di proxmox (VM, files & database) untuk keamanan data", date: "18 Januari 2025", price: "Rp 50.000,00" },
-            { img: "image/foto1.jpg", alt: "Video2", title: "Belajar Mikrotik untuk Pemula – Konfigurasi Dasar untuk Kebutuhan Jaringan Komputer", date: "10 Mei 2025", price: "Rp 75.000,00" },
-            { img: "image/Pixiv Fantasia T 02 4K.png", alt: "Video3", title: "Download belajar freebsd dan security hardening", date: "", price: "Rp 50.000,00" },
-            { img: "image/foto1.jpg", alt: "Video4", title: "Essential Hacking Web CMS Hacking & Security (WordPress & Joomla)", date: "5 Oktober 2024", price: "Rp 50.000,00" },
-            { img: "image/foto1.jpg", alt: "Video5", title: "Ethical Hacking & Exploit Development", date: "22 November 2024", price: "Rp 200.000,00" },
-            { img: "image/foto1.jpg", alt: "Video6", title: "Ethical Hacking dan Eksplorasi Kerentanan dalam OWASP Top 10", date: "27 Desember 2024", price: "Rp 150.000,00" },
-            { img: "image/foto1.jpg", alt: "Video7", title: "Ethical Web Application Hacking & Security V2", date: "1 November 2024", price: "Rp 100.000,00" },
-            { img: "image/foto1.jpg", alt: "Video8", title: "Membangun Apache Web Server dengan keamanan yang optimal V2", date: "16 Mei 2025", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video9", title: "Membangun Infrastruktur Modern Berbasis HTTPS Reverse Proxy dengan Proxmox", date: "Mei 2025", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video10", title: "Membangun Server Monolith dengan Docker dengan cepat dan mudah", date: "", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video11", title: "Membangun layanan server dengan platform PHP modern menggunakan FrankenPHP v2", date: "19 April 2025", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video12", title: "Nessus & Eksploitasi Kerentanan di Sistem & Aplikasi", date: "Mei 2025", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video13", title: "Proxmox Virtual Environment (Proxmox VE) untuk kebutuhan server", date: "31 Januari 2025", price: "Rp 150.000,00" },
-            { img: "image/foto1.jpg", alt: "Video14", title: "Webinar Membangun Layanan Internet Kantor dengan Keamanan Maksimal menggunakan Mikrotik RouterOS v7", date: "29 Agustus 2024", price: "Rp 35.000,00" },
-            { img: "image/foto1.jpg", alt: "Video15", title: "Webinar X-code – Ethical network hacking & Security V2", date: "10 September 2024", price: "Rp 75.000,00" },
-            { img: "image/foto1.jpg", alt: "Video16", title: "Windows Hacking & Security", date: "", price: "Rp 50.000,00" },
-        ];
-        
-        // Pagination logic
-        const videosPerPage = 6;
-        let currentPage = 1;
-        const totalPages = Math.ceil(fileData.length / videosPerPage);
-
-        const fileContainer = document.getElementById('file-container');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageNumbersContainer = document.getElementById('pageNumbers');
-
-        function displayVideos(page) {
-            fileContainer.innerHTML = '';
-            const startIndex = (page - 1) * videosPerPage;
-            const endIndex = startIndex + videosPerPage;
-            const paginatedVideos = fileData.slice(startIndex, endIndex);
-
-            paginatedVideos.forEach(file => {
-                const fileCard = document.createElement('div');
-                fileCard.className = 'file-card';
-                fileCard.innerHTML = `
-                    <img src="${file.img}" alt="${file.alt}" />
-                    <h3>${file.title}</h3>
-                    <p class="file-date">${file.date}</p>
-                    <p class="file-price">${file.price}</p>
-                    <a href="#">Buy</a>
-                `;
-                fileContainer.appendChild(fileCard);
-            });
-            updatePaginationControls();
-        }
-
-        function updatePaginationControls() {
-            pageNumbersContainer.innerHTML = '';
-            for (let i = 1; i <= totalPages; i++) {
-                const pageBtn = document.createElement('button');
-                pageBtn.innerText = i;
-                pageBtn.className = `page-btn ${i === currentPage ? 'active' : ''}`;
-                pageBtn.addEventListener('click', () => {
-                    currentPage = i;
-                    displayVideos(currentPage);
-                });
-                pageNumbersContainer.appendChild(pageBtn);
-            }
-            prevBtn.disabled = currentPage === 1;
-            nextBtn.disabled = currentPage === totalPages;
-        }
-
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                displayVideos(currentPage);
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                currentPage++;
-                displayVideos(currentPage);
-            }
-        });
-
-        // Initial render
-        document.addEventListener('DOMContentLoaded', () => {
-            displayVideos(currentPage);
-        });
-    </script>
-
-</body>
+    <script src="filelist.js" type="module"></script>
+  </body>
 </html>
