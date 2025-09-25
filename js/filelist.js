@@ -93,7 +93,7 @@ function renderProducts(products) {
     const fileCard = document.createElement("div");
     fileCard.className = "file-card";
     fileCard.innerHTML = `
-      <img src="http://localhost:5000${p.gambarProduk}" alt="${p.namaProduk}" />
+      <img src="../${p.gambarProduk}" alt="${p.namaProduk}" />
       <h3>${p.namaProduk}</h3>
       <p class="file-date">${new Date(p.tanggal).toLocaleDateString("id-ID", {
         day: "numeric",
@@ -101,7 +101,7 @@ function renderProducts(products) {
         year: "numeric",
       })}</p>
       <p class="file-price">Rp ${p.harga.toLocaleString("id-ID")}</p>
-      <a href="#">Buy</a>
+      <a href="detailproduk.html?id=${p.id}">Buy</a>
     `;
     fileContainer.appendChild(fileCard);
   });

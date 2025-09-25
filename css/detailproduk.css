@@ -154,7 +154,7 @@ nav a {
 
 .gambarProduk {
     /* border: 1px solid rgba(0,0,0,0.5); */
-    background-image: url(../image/produk.jpg);
+    /* background-image: url(../image/produk.jpg); */
     background-size: cover;
 }
 
