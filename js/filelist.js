@@ -1,4 +1,4 @@
-
+// --- Ambil data user saat login ---
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch("http://localhost:5000/auth/filelist", {
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const emailPengguna = document.querySelector(".email-pengguna");
 
       namaPengguna.textContent =
-      data.user.first_name + " " + data.user.last_name;
+        data.user.first_name + " " + data.user.last_name;
       emailPengguna.textContent = data.user.email;
 
       console.log("Data user:", data.user);
@@ -31,10 +31,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-
-
+// --- Logout ---
 const logoutBtn = document.getElementById("logoutBtn");
-
 logoutBtn.addEventListener("click", async (e) => {
   e.preventDefault();
   try {
@@ -46,205 +44,102 @@ logoutBtn.addEventListener("click", async (e) => {
     const data = await res.json();
 
     if (data.statusCode === 200) {
-      window.location.href = "login.html"; 
+      window.location.href = "login.html";
     } else {
       alert(data.message || "Gagal logout");
     }
   } catch (err) {
     console.error(err);
-    window.location.href = "login.html"; 
+    window.location.href = "login.html";
   }
 });
 
-
-
-
-const fileData = [
-  {
-    img: "../image/Pixiv Fantasia T 01 4K.png",
-    alt: "Video1",
-    title:
-      "Backup data secara otomatis di proxmox (VM, files & database) untuk keamanan data",
-    date: "18 Januari 2025",
-    price: "Rp 50.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video2",
-    title:
-      "Belajar Mikrotik untuk Pemula – Konfigurasi Dasar untuk Kebutuhan Jaringan Komputer",
-    date: "10 Mei 2025",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/Pixiv Fantasia T 02 4K.png",
-    alt: "Video3",
-    title: "Download belajar freebsd dan security hardening",
-    date: "",
-    price: "Rp 50.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video4",
-    title: "Essential Hacking Web CMS Hacking & Security (WordPress & Joomla)",
-    date: "5 Oktober 2024",
-    price: "Rp 50.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video5",
-    title: "Ethical Hacking & Exploit Development",
-    date: "22 November 2024",
-    price: "Rp 200.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video6",
-    title: "Ethical Hacking dan Eksplorasi Kerentanan dalam OWASP Top 10",
-    date: "27 Desember 2024",
-    price: "Rp 150.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video7",
-    title: "Ethical Web Application Hacking & Security V2",
-    date: "1 November 2024",
-    price: "Rp 100.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video8",
-    title: "Membangun Apache Web Server dengan keamanan yang optimal V2",
-    date: "16 Mei 2025",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video9",
-    title:
-      "Membangun Infrastruktur Modern Berbasis HTTPS Reverse Proxy dengan Proxmox",
-    date: "Mei 2025",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video10",
-    title: "Membangun Server Monolith dengan Docker dengan cepat dan mudah",
-    date: "",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video11",
-    title:
-      "Membangun layanan server dengan platform PHP modern menggunakan FrankenPHP v2",
-    date: "19 April 2025",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video12",
-    title: "Nessus & Eksploitasi Kerentanan di Sistem & Aplikasi",
-    date: "Mei 2025",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video13",
-    title: "Proxmox Virtual Environment (Proxmox VE) untuk kebutuhan server",
-    date: "31 Januari 2025",
-    price: "Rp 150.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video14",
-    title:
-      "Webinar Membangun Layanan Internet Kantor dengan Keamanan Maksimal menggunakan Mikrotik RouterOS v7",
-    date: "29 Agustus 2024",
-    price: "Rp 35.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video15",
-    title: "Webinar X-code – Ethical network hacking & Security V2",
-    date: "10 September 2024",
-    price: "Rp 75.000,00",
-  },
-  {
-    img: "../image/foto1.jpg",
-    alt: "Video16",
-    title: "Windows Hacking & Security",
-    date: "",
-    price: "Rp 50.000,00",
-  },
-];
-
-// Pagination logic
-const videosPerPage = 6;
-let currentPage = 1;
-const totalPages = Math.ceil(fileData.length / videosPerPage);
-
+// --- Ambil & tampilkan produk dari database ---
 const fileContainer = document.getElementById("file-container");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const pageNumbersContainer = document.getElementById("pageNumbers");
 
-function displayVideos(page) {
-  fileContainer.innerHTML = "";
-  const startIndex = (page - 1) * videosPerPage;
-  const endIndex = startIndex + videosPerPage;
-  const paginatedVideos = fileData.slice(startIndex, endIndex);
+let currentPage = 1;
+let totalPages = 1;
+const videosPerPage = 6;
 
-  paginatedVideos.forEach((file) => {
+// Ambil produk dari API
+async function loadProducts(page = 1) {
+  try {
+    const res = await fetch(
+      `http://localhost:5000/api/products?page=${page}&limit=${videosPerPage}`,
+      { credentials: "include" }
+    );
+    console.log("Status : ",res.status)
+    const result = await res.json();
+    console.log("Result : ",result)
+
+    currentPage = result.currentPage;
+    totalPages = result.totalPages;
+
+    renderProducts(result.data);
+    updatePaginationControls();
+  } catch (err) {
+    console.error("Gagal ambil produk:", err);
+    fileContainer.innerHTML = "<p>Gagal memuat produk</p>";
+  }
+}
+
+// Render produk ke halaman
+function renderProducts(products) {
+  fileContainer.innerHTML = "";
+  products.forEach((p) => {
     const fileCard = document.createElement("div");
     fileCard.className = "file-card";
     fileCard.innerHTML = `
-                    <img src="${file.img}" alt="${file.alt}" />
-                    <h3>${file.title}</h3>
-                    <p class="file-date">${file.date}</p>
-                    <p class="file-price">${file.price}</p>
-                    <a href="#">Buy</a>
-                `;
+      <img src="http://localhost:5000${p.gambarProduk}" alt="${p.namaProduk}" />
+      <h3>${p.namaProduk}</h3>
+      <p class="file-date">${new Date(p.tanggal).toLocaleDateString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      })}</p>
+      <p class="file-price">Rp ${p.harga.toLocaleString("id-ID")}</p>
+      <a href="#">Buy</a>
+    `;
     fileContainer.appendChild(fileCard);
   });
-  updatePaginationControls();
 }
 
+
+// Update pagination
 function updatePaginationControls() {
   pageNumbersContainer.innerHTML = "";
+
   for (let i = 1; i <= totalPages; i++) {
     const pageBtn = document.createElement("button");
     pageBtn.innerText = i;
     pageBtn.className = `page-btn ${i === currentPage ? "active" : ""}`;
     pageBtn.addEventListener("click", () => {
-      currentPage = i;
-      displayVideos(currentPage);
+      loadProducts(i);
     });
     pageNumbersContainer.appendChild(pageBtn);
   }
+
   prevBtn.disabled = currentPage === 1;
   nextBtn.disabled = currentPage === totalPages;
+
+  prevBtn.onclick = () => {
+    if (currentPage > 1) loadProducts(currentPage - 1);
+  };
+
+  nextBtn.onclick = () => {
+    if (currentPage < totalPages) loadProducts(currentPage + 1);
+  };
 }
 
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    displayVideos(currentPage);
-  }
-});
-
-nextBtn.addEventListener("click", () => {
-  if (currentPage < totalPages) {
-    currentPage++;
-    displayVideos(currentPage);
-  }
-});
-
-// Initial render
+// --- Initial render ---
 document.addEventListener("DOMContentLoaded", () => {
-  displayVideos(currentPage);
+  loadProducts();
 });
 
+// --- Dropdown profil ---
 const panah = document.querySelector(".panah-bawah");
 const dropdown = document.getElementById("dropdown");
 
@@ -258,8 +153,3 @@ window.addEventListener("click", (e) => {
     dropdown.style.display = "none";
   }
 });
-
-
-
-
-
