@@ -66,7 +66,6 @@ window.addEventListener("click", (e) => {
   }
 });
 
-
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
 
@@ -88,6 +87,23 @@ async function fetchDetailProduk(id) {
     if (hargaProduk)
       hargaProduk.textContent = `Rp ${produk.harga.toLocaleString("id-ID")}`;
     if (gambarProduk) gambarProduk.src = `../${produk.gambarProduk}`;
+
+    const materi = produk.materi.split(",");
+    const skill = produk.skill.split(",");
+
+    const checklistMateri = document.getElementById("checklist-materi");
+    const checklistSkill = document.getElementById("checklist-skill");
+
+    for (let i = 0; i < materi.length; i++) {
+      const li = document.createElement("li"); 
+      li.textContent = materi[i]; 
+      checklistMateri.appendChild(li); 
+    }
+    for (let i = 0; i < skill.length; i++) {
+      const li = document.createElement("li"); 
+      li.textContent = skill[i]; 
+      checklistSkill.appendChild(li); 
+    }
   } catch (error) {
     console.error("Error:", error);
   }
