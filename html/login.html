@@ -8,29 +8,30 @@
   </head>
   <body>
     <div class="container" id="container">
-      <!-- Form Login -->
+      <!-- ==================== FORM LOGIN ==================== -->
       <div class="form-container sign-in">
-        <img src="../image/Xcode.png" alt="" />
+        <img src="../image/Xcode.png" alt="Logo" />
         <h2>Login</h2>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Login</button>
-        <p>Belum punya akun? <a href="#" id="toSignUp">Sign  Up</a></p>
+        <input type="email" id="loginEmail" placeholder="Email" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button id="loginBtn">Login</button>
+        <p>Belum punya akun? <a href="#" id="toSignUp">Sign Up</a></p>
       </div>
 
-      <!-- Form Sign Up -->
+      <!-- ==================== FORM SIGN UP ==================== -->
       <div class="form-container sign-up">
-        <img src="../image/Xcode.png" alt="" />
+        <img src="../image/Xcode.png" alt="Logo" />
         <h2>Sign Up</h2>
-        <input type="text" placeholder="First Name" />
-        <input type="text" placeholder="Last Name" />
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button>Sign Up</button>
+        <input type="text" id="firstName" placeholder="First Name" required />
+        <input type="text" id="lastName" placeholder="Last Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="phone" placeholder="No Handphone (contoh: +628123456789)" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button id="signupBtn">Sign Up</button>
         <p>Sudah punya akun? <a href="#" id="toLogin">Login</a></p>
       </div>
 
-      <!-- Side Panel -->
+      <!-- ==================== SIDE PANEL ==================== -->
       <div class="side-panel">
         <div>
           <h1>Hallo, Selamat Datang!</h1>

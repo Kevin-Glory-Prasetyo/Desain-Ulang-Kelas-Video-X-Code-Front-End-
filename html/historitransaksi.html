@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Histori Transaksi</title>
+  <link rel="stylesheet" href="../css/histori.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+      <div class="header-kiri">
+        <img src="../image/Xcode.png" alt="Logo Xcode" class="logo" />
+      </div>
+      <div class="header-kanan">
+        <nav>
+          <a href="filelist.html">Home</a>
+          <a href="historitransaksi.html" class="active">Histori Transaksi</a>
+        </nav>
+        <div class="bagian-profil">
+          <img src="../image/profile.png" alt="Foto Profil" class="foto-profil" />
+          <div class="detail-pengguna">
+            <p class="nama-pengguna">Glen Daud</p>
+            <p class="email-pengguna">glendaud@gmail.com</p>
+          </div>
+          <span class="panah-bawah"><i class="fa-solid fa-caret-down"></i></span>
+
+          <!-- DROPDOWN -->
+          <div class="dropdown-menu" id="dropdown">
+            <a href="filelist.html">Home</a>
+            <a href="historitransaksi.html">Histori Transaksi</a>
+            <a href="#" id="logoutBtn">Logout</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+    <section class="histori-section">
+      <h2>Histori Transaksi</h2>
+      <p>Daftar Semua Riwayat Transaksi</p>
+
+      <input type="text" class="search-bar" placeholder="Search.." />
+
+      <table class="tabel-transaksi">
+        <thead>
+          <tr>
+            <th>TANGGAL</th>
+            <th>NAMA PRODUK</th>
+            <th>HARGA</th>
+            <th>STATUS</th>
+            <th>METODE PEMBAYARAN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>12/10/2025</td>
+            <td>Kelas Desain Canva</td>
+            <td>Rp120.000</td>
+            <td><span class="status sukses">Selesai</span></td>
+            <td>Xendit</td>
+          </tr>
+          <tr>
+            <td>08/10/2025</td>
+            <td>E-book Bisnis Digital</td>
+            <td>Rp75.000</td>
+            <td><span class="status pending">Menunggu</span></td>
+            <td>Transfer Bank</td>
+          </tr>
+          <tr>
+            <td>05/10/2025</td>
+            <td>Kelas PowerPoint Pro</td>
+            <td>Rp99.000</td>
+            <td><span class="status gagal">Gagal</span></td>
+            <td>VA BCA</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+      <div class="footer-info">
+        <img src="../image/Xcode.png" alt="Logo Xcode Footer" class="logo-footer" />
+        <p class="deskripsi">
+          x-code training layanan dari perusahaan PT. Teknologi Server Indonesia, perseroan terbatas berbadan hukum yang bergerak di bidang Cyber Security.
+        </p>
+      </div>
+      <div class="tautan">
+        <p><strong>TRAINING LINK</strong></p>
+        <a href="https://xcode.co.id/">Website X-Code</a>
+        <a href="https://kelashacker.com/">X-Code Professional</a>
+      </div>
+      <div class="kontak">
+        <p><strong>CONTACT US</strong></p>
+        <a href="https://wa.me/6285728917933"><i class="fa-brands fa-whatsapp"></i> +62 857 2891 7933</a>
+        <a href="mailto:admin@xcodetraining.com"><i class="fa-solid fa-envelope"></i> admin@xcodetraining.com</a>
+      </div>
+      <div class="copyright">
+        <p>Copyright By X-Code All Right Reserved</p>
+        <p>Privacy Policy</p>
+      </div>
+    </footer>
+
+  <!-- JAVASCRIPT DROPDOWN -->
+  <script src="../js/histori.js" type="module"></script>
+</body>
+</html>

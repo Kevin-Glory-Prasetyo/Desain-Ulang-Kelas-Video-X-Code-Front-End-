@@ -1,4 +1,4 @@
-// --- Ambil data user saat login ---
+// ==================== AMBIL DATA USER SAAT LOGIN ====================
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch("http://localhost:5000/auth/filelist", {
@@ -13,12 +13,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const data = await res.json();
 
-    if (res.ok) {
+    if (res.ok && data.user) {
       const namaPengguna = document.querySelector(".nama-pengguna");
       const emailPengguna = document.querySelector(".email-pengguna");
 
-      namaPengguna.textContent =
-        data.user.first_name + " " + data.user.last_name;
+      namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
       emailPengguna.textContent = data.user.email;
 
       console.log("Data user:", data.user);
@@ -29,9 +28,42 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error("Fetch gagal:", err);
     window.location.href = "login.html";
   }
+
+  // ==================== FOTO PROFIL HEADER ====================
+  // Ambil dari localStorage (jika sudah tersimpan saat edit profile)
+  const savedProfileImage = localStorage.getItem("profileImage");
+  if (savedProfileImage) {
+    const fotoHeader = document.querySelector(".foto-profil");
+    if (fotoHeader) {
+      fotoHeader.src = savedProfileImage;
+    }
+  } else {
+    // Jika belum ada di localStorage, ambil dari API profil
+    try {
+      const resProfile = await fetch("http://localhost:5000/api/profile", {
+        method: "GET",
+        credentials: "include",
+      });
+      if (resProfile.ok) {
+        const dataProfile = await resProfile.json();
+        const fotoHeader = document.querySelector(".foto-profil");
+        const imageURL = dataProfile.user_image
+          ? `http://localhost:5000${dataProfile.user_image}`
+          : "../image/profile.png";
+
+        if (fotoHeader) fotoHeader.src = imageURL;
+        localStorage.setItem("profileImage", imageURL);
+      }
+    } catch (err) {
+      console.warn("Gagal memuat foto profil header:", err);
+    }
+  }
+
+  // ==================== LOAD PRODUK SAAT HALAMAN SIAP ====================
+  loadProducts();
 });
 
-// --- Logout ---
+// ==================== LOGOUT ====================
 const logoutBtn = document.getElementById("logoutBtn");
 logoutBtn.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -44,6 +76,7 @@ logoutBtn.addEventListener("click", async (e) => {
     const data = await res.json();
 
     if (data.statusCode === 200) {
+      localStorage.removeItem("profileImage"); // bersihkan cache foto
       window.location.href = "login.html";
     } else {
       alert(data.message || "Gagal logout");
@@ -54,7 +87,7 @@ logoutBtn.addEventListener("click", async (e) => {
   }
 });
 
-// --- Ambil & tampilkan produk dari database ---
+// ==================== AMBIL & TAMPILKAN PRODUK DARI DATABASE ====================
 const fileContainer = document.getElementById("file-container");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
@@ -64,16 +97,17 @@ let currentPage = 1;
 let totalPages = 1;
 const videosPerPage = 6;
 
-// Ambil produk dari API
 async function loadProducts(page = 1) {
   try {
     const res = await fetch(
       `http://localhost:5000/api/products?page=${page}&limit=${videosPerPage}`,
       { credentials: "include" }
     );
-    console.log("Status : ",res.status)
+    console.log("Status:", res.status);
     const result = await res.json();
-    console.log("Result : ",result)
+    console.log("Result:", result);
+
+    if (!res.ok) throw new Error(result.message || "Gagal mengambil data produk");
 
     currentPage = result.currentPage;
     totalPages = result.totalPages;
@@ -86,7 +120,6 @@ async function loadProducts(page = 1) {
   }
 }
 
-// Render produk ke halaman
 function renderProducts(products) {
   fileContainer.innerHTML = "";
   products.forEach((p) => {
@@ -107,8 +140,6 @@ function renderProducts(products) {
   });
 }
 
-
-// Update pagination
 function updatePaginationControls() {
   pageNumbersContainer.innerHTML = "";
 
@@ -134,12 +165,7 @@ function updatePaginationControls() {
   };
 }
 
-// --- Initial render ---
-document.addEventListener("DOMContentLoaded", () => {
-  loadProducts();
-});
-
-// --- Dropdown profil ---
+// ==================== DROPDOWN PROFIL ====================
 const panah = document.querySelector(".panah-bawah");
 const dropdown = document.getElementById("dropdown");
 
