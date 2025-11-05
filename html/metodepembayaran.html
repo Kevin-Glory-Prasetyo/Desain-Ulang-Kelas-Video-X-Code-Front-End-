@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XCODE - Payment</title>
+    <link rel="stylesheet" href="../css/metodepembayaran.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="../image/Xcode.png" alt="XCODE" class="logo-img">
+            </div>
+            <div class="nav-right">
+                <div class="nav-links">
+                    <a href="#" class="nav-link">Home</a>
+                    <a href="#" class="nav-link">Histori Transaksi</a>
+                </div>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="User" class="user-avatar">
+                    <div class="separator-vertical"></div>
+                    <div class="user-details">
+                        <div class="user-name">Gilvo Hikud</div>
+                        <div class="user-email">gilvo@mail.com</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="payment-section">
+            <h2 class="section-title">Metode Pembayaran</h2>
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <span>QRIS Payment</span>
+                    <img src="https://via.placeholder.com/60x30?text=QRIS" alt="QRIS">
+                </div>
+                <div class="payment-method">
+                    <span>BRI Virtual Account</span>
+                    <img src="https://via.placeholder.com/60x30?text=BRI" alt="BRI">
+                </div>
+                <div class="payment-method">
+                    <span>BCA Virtual Account</span>
+                    <img src="https://via.placeholder.com/60x30?text=BCA" alt="BCA">
+                </div>
+                <div class="payment-method">
+                    <span>BNI Virtual Account</span>
+                    <img src="https://via.placeholder.com/60x30?text=BNI" alt="BNI">
+                </div>
+                <div class="payment-method">
+                    <span>Mandiri Virtual Account</span>
+                    <img src="https://via.placeholder.com/60x30?text=Mandiri" alt="Mandiri">
+                </div>
+            </div>
+        </div>
+
+        <div class="order-section">
+            <h2 class="section-title">Detail Pesanan</h2>
+            <div class="order-card">
+                <div class="course-header">
+                    <div class="course-preview">
+                        <img src="../image/frankenPHP.png" alt="Course">
+                    </div>
+                    <div class="course-details">
+                        <div class="course-title">Judul Course</div>
+                        <div class="course-duration">4 Materi • 2 Jam</div>
+                        <div class="course-price">Rp. 200.000.000</div>
+                    </div>
+                </div>
+
+                <div class="price-details">
+                    <div class="price-row">
+                        <span>Harga</span>
+                        <span>200.000,00</span>
+                    </div>
+                    <div class="price-row">
+                        <span>Fee</span>
+                        <span>2.000,00</span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Total</span>
+                        <span>202.000,00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="terms">
+                <input type="checkbox" id="agree" class="checkbox">
+                <label for="agree">
+                    Dengan mengeklik ini, Anda menyetujui <a href="#">Persyaratan Layanan</a> dan <a href="#">Kebijakan Privasi</a> kami.
+                </label>
+            </div>
+
+            <button class="btn-payment" onclick="processPayment()">Bayar</button>
+        </div>
+    </main>
+
+    <script src="../js/metodepembayaran.js"></script>
+</body>
+</html>
