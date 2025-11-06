@@ -40,9 +40,9 @@ toLogin.addEventListener("click", (e) => {
   container.classList.remove("change-password-mode");
 });
 
-// --- MODIFIKASI: Logika Alur Forgot Password ---
+
 // =======================
-// FORGOT PASSWORD FLOW
+//  FORGOT PASSWORD FLOW 
 // =======================
 if (toForgotPassword) {
   toForgotPassword.addEventListener("click", (e) => {
@@ -68,27 +68,7 @@ if (sendOtpButton) {
     }
     // Simpan email di variabel global
     userEmailForReset = email;
-    // --- AKHIR TAMBAHAN ---
-
-    // TODO: Tambahkan logika fetch API /auth/forgotPassword di sini
-    // Contoh:
-    // try {
-    //   const res = await fetch("http://localhost:5000/auth/forgotPassword", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ user_email: userEmailForReset }),
-    //   });
-    //   const data = await res.json();
-    //   if (data.statusCode === 200) {
-    //     alert(data.message || "OTP telah dikirim ke email Anda.");
-    //     container.classList.add("verify-email-mode");
-    //     container.classList.remove("forgot-password-mode");
-    //   } else {
-    //     alert(data.message || "Gagal mengirim OTP.");
-    //   }
-    // } catch (err) {
-    //   alert("Terjadi kesalahan server saat mengirim OTP.");
-    // }
+    
 
     // Untuk testing frontend, kita lanjut saja:
     alert("Simulasi: Mengirim OTP ke " + userEmailForReset);
