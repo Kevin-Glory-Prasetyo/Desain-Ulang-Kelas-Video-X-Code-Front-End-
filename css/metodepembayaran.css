@@ -132,7 +132,8 @@ body {
 }
 
 .payment-method img {
-    height: 30px;
+    height: 80px;
+    width:80px;
     object-fit: contain;
 }
 
