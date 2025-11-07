@@ -8,30 +8,63 @@
   </head>
   <body>
     <div class="container" id="container">
-      <!-- ==================== FORM LOGIN ==================== -->
+      <!-- Form Login -->
       <div class="form-container sign-in">
-        <img src="../image/Xcode.png" alt="Logo" />
+        <img src="../image/Xcode.png" alt="logo" />
         <h2>Login</h2>
-        <input type="email" id="loginEmail" placeholder="Email" required />
-        <input type="password" id="loginPassword" placeholder="Password" required />
-        <button id="loginBtn">Login</button>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <p><a href="#" id="toForgotPassword">Forgot Password?</a></p>
+        <button>Login</button>
         <p>Belum punya akun? <a href="#" id="toSignUp">Sign Up</a></p>
       </div>
 
-      <!-- ==================== FORM SIGN UP ==================== -->
+      <!-- Form Sign Up -->
       <div class="form-container sign-up">
-        <img src="../image/Xcode.png" alt="Logo" />
+        <img src="../image/Xcode.png" alt="logo" />
         <h2>Sign Up</h2>
-        <input type="text" id="firstName" placeholder="First Name" required />
-        <input type="text" id="lastName" placeholder="Last Name" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="text" id="phone" placeholder="No Handphone (contoh: +628123456789)" required />
-        <input type="password" id="password" placeholder="Password" required />
-        <button id="signupBtn">Sign Up</button>
+        <input type="text" placeholder="First Name" />
+        <input type="text" placeholder="Last Name" />
+        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="No Handphone" />
+        <input type="password" placeholder="Password" />
+        <button>Sign Up</button>
         <p>Sudah punya akun? <a href="#" id="toLogin">Login</a></p>
       </div>
 
-      <!-- ==================== SIDE PANEL ==================== -->
+      <div class="form-container forgot-password">
+        <img src="../image/Xcode.png" alt="logo" />
+        <h2>Forgot Password</h2>
+          Masukkan email Anda untuk menerima kode OTP.
+        </p>
+        <input type="email" placeholder="Email" />
+        <button>Send OTP</button> 
+      </div>
+
+      <div class="form-container verify-email">
+        <img src="../image/Xcode.png" alt="logo" />
+        <h2>Verify Code</h2> 
+          Masukkan 4 digit kode yang dikirim ke email Anda.
+        </p>
+
+        <div class="otp-container">
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+          <input type="text" maxlength="1" class="otp-input" />
+        </div>
+
+        <button id="verify-btn">Verify</button>
+      </div>
+
+      <div class="form-container change-password">
+        <img src="../image/Xcode.png" alt="logo" />
+        <h2>Change Password</h2>
+        <input type="password" placeholder="New Password" />
+        <input type="password" placeholder="Confirm New Password" />
+        <button>Change Password</button>      
+      </div>
+      <!-- Side Panel -->
       <div class="side-panel">
         <div>
           <h1>Hallo, Selamat Datang!</h1>

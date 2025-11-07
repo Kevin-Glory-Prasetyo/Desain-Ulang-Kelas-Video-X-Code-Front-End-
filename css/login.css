@@ -78,6 +78,26 @@ body {
   background: #444;
 }
 
+/* --- TAMBAHAN CSS UNTUK OTP --- */
+.otp-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.otp-input {
+  width: 45px !important; /* Override width: 100% */
+  height: 45px;
+  text-align: center;
+  font-size: 18px;
+  padding: 10px !important; /* Override padding */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+/* --- AKHIR TAMBAHAN --- */
+
 .side-panel {
   width: 50%;
   background-image: url(../image/backLogin.jpeg);
@@ -104,22 +124,40 @@ body {
 /* ========================= */
 /* ANIMASI DESKTOP / TABLET */
 /* ========================= */
-.container.sign-up-mode .side-panel {
+
+/* --- TAMBAHAN --- */
+/* Saat mode-mode baru aktif, pindahkan side panel */
+.container.sign-up-mode .side-panel,
+.container.forgot-password-mode .side-panel,
+.container.verify-email-mode .side-panel,
+.container.change-password-mode .side-panel {
   transform: translateX(-100%);
 }
 
-.container.sign-up-mode .form-container.sign-in {
+/* Saat mode-mode baru aktif, sembunyikan form sign-in */
+.container.sign-up-mode .form-container.sign-in,
+.container.forgot-password-mode .form-container.sign-in,
+.container.verify-email-mode .form-container.sign-in,
+.container.change-password-mode .form-container.sign-in {
   transform: translateX(100%);
   opacity: 0;
 }
 
-.container.sign-up-mode .form-container.sign-up {
+/* Tampilkan form yang sesuai */
+.container.sign-up-mode .form-container.sign-up,
+.container.forgot-password-mode .form-container.forgot-password,
+.container.verify-email-mode .form-container.verify-email,
+.container.change-password-mode .form-container.change-password {
   transform: translateX(-1%);
   opacity: 1;
   z-index: 1;
 }
 
-.form-container.sign-up {
+/* Sembunyikan form sign-up dan form-form baru by default */
+.form-container.sign-up,
+.form-container.forgot-password,
+.form-container.verify-email,
+.form-container.change-password {
   position: absolute;
   top: 0;
   right: 0;
@@ -182,18 +220,54 @@ body {
   }
 
   .form-container.sign-up,
-  .form-container.sign-in {
+  /* --- TAMBAHAN --- */
+  .form-container.forgot-password,
+  .form-container.verify-email,
+  .form-container.change-password {
     position: relative;
     width: 100%;
     height: auto;
   }
 
+
+
   /* Sembunyikan form yang tidak aktif */
   .container.sign-up-mode .form-container.sign-in {
     display: none;
   }
-
   .container:not(.sign-up-mode) .form-container.sign-up {
+    display: none;
+  }
+
+  /* --- TAMBAHAN UNTUK ALUR BARU --- */
+
+  /* Sembunyikan form baru by default */
+  .container:not(.forgot-password-mode) .form-container.forgot-password {
+    display: none;
+  }
+  .container:not(.verify-email-mode) .form-container.verify-email {
+    display: none;
+  }
+  .container:not(.change-password-mode) .form-container.change-password {
+    display: none;
+  }
+
+  /* Saat mode baru aktif, sembunyikan form lainnya */
+  .container.forgot-password-mode .form-container.sign-in,
+  .container.forgot-password-mode .form-container.sign-up {
+    display: none;
+  }
+
+  .container.verify-email-mode .form-container.sign-in,
+  .container.verify-email-mode .form-container.sign-up,
+  .container.verify-email-mode .form-container.forgot-password {
+    display: none;
+  }
+
+  .container.change-password-mode .form-container.sign-in,
+  .container.change-password-mode .form-container.sign-up,
+  .container.change-password-mode .form-container.forgot-password,
+  .container.change-password-mode .form-container.verify-email {
     display: none;
   }
 }
