@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #e8e8e8;
+
     color: #333;
 }
 
@@ -123,7 +123,7 @@ body {
 }
 
 .payment-method:hover {
-    border-color: #4a90e2;
+    border-color: #7e7e7e;
     background-color: #f8f9fa;
 }
 
@@ -132,8 +132,8 @@ body {
 }
 
 .payment-method img {
-    height: 80px;
-    width:80px;
+    height: 110px;
+    width:110px;
     object-fit: contain;
 }
 
@@ -163,7 +163,7 @@ body {
 }
 
 .course-preview img {
-    width: 150px;
+    width: 235px;
     height: auto;
     border-radius: 6px;
 }
@@ -192,7 +192,7 @@ body {
 }
 
 .course-duration {
-    font-size: 14px;
+    font-size: 17px;
     color: #666;
 }
 

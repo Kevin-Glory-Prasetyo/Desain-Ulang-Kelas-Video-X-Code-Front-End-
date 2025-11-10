@@ -11,7 +11,7 @@ paymentMethods.forEach(method => {
         });
         
         // Tambahkan seleksi baru
-        this.style.borderColor = '#4a90e2';
+        this.style.borderColor = '#ffffffff';
         this.style.backgroundColor = '#e3f2fd';
         
         selectedPaymentMethod = this.querySelector('span').textContent;
