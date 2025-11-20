@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan Pembayaran</title>
+    <link rel="stylesheet" href="../css/panduanpembayaran.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+    <div class="header-kiri">
+      <img src="../image/Xcode.png" alt="Logo Xcode" class="logo" />
+    </div>
+    <div class="header-kanan">
+      <nav>
+        <a href="filelist.html">Home</a>
+        <a href="historitransaksi.html">Histori Transaksi</a>
+      </nav>
+      
+      <div class="bagian-profil">
+        <img src="../image/profile.png" alt="Foto Profil" class="foto-profil" />
+        <div class="detail-pengguna">
+          <p class="nama-pengguna">Glen Daud</p>
+          <p class="email-pengguna">glendaud@gmail.com</p>
+        </div>
+        <span class="panah-bawah"><i class="fa-solid fa-caret-down"></i></span>
+        
+        <div class="dropdown-menu" id="dropdown">
+          <a href="filelist.html">Home</a>
+          <a href="historitransaksi.html">Histori Transaksi</a>
+          <a href="profile.html">Edit Profil</a>
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+    <div class="container">
+        <h1>Metode Pembayaran</h1>
+        
+        <div class="account-info">
+            <div class="card bri">
+                <div class="header-bank">
+                    <span class="bank-name">Bank BRI</span>
+                    <img src="../image/BRI.svg" alt="Logo BRI" class="logo">
+                </div>
+                <div class="account-details">
+                    <p class="holder">PT Teknologi Server Indonesia</p>
+                    <p class="number">024501003046300</p>
+                </div>
+            </div>
+
+            <div class="card bca">
+                <div class="header-bank">
+                    <span class="bank-name">Bank BCA</span>
+                    <img src="../image/BCA.svg" alt="Logo BCA" class="logo">
+                </div>
+                <div class="account-details">
+                    <p class="holder">PT Teknologi Server Indonesia</p>
+                    <p class="number">4452254135</p>
+                </div>
+            </div>
+        </div>
+
+        <hr>
+
+        <h1> Panduan Pembayaran</h1>
+
+        <div class="payment-guides">
+            <div class="column">
+                <details class="guide-item" open>
+                    <summary class="guide-header bri-bg">
+                        <span>Mobile Banking</span>
+                        <img src="../image/BRI.svg" alt="Logo BRI" class="logo">
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </summary>
+                    <div class="guide-content">
+                        <ol>
+                            <li>Buka aplikasi m-banking sesuai bank Anda</li>
+                            <li>Pilih menu Transfer ke Bank Lain</li>
+                            <li>Pilih bank tujuan: **BCA (kode bank 014)**</li>
+                            <li>Masukkan **Nomor Rekening BCA Tujuan**</li>
+                            <li>Masukkan Nominal Transfer</li>
+                            <li>Periksa detail penerima</li>
+                            <li>Konfirmasi dan masukkan PIN</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="guide-item">
+                    <summary class="guide-header bri-bg">
+                        <span>ATM</span>
+                        <img src="../image/BRI.svg" alt="Logo BRI" class="logo">
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </summary>
+                    <div class="guide-content">
+                        <ol>
+                            <li>Pilih menu **Transfer**</li>
+                            <li>Pilih tujuan **Bank BRI (kode 002)**</li>
+                            <li>Masukkan **Nomor Rekening BRI Tujuan**</li>
+                            <li>Masukkan Nominal Transfer</li>
+                            <li>Konfirmasi data</li>
+                            <li>Periksa detail penerima</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+            
+            <div class="column">
+                <details class="guide-item" open>
+                    <summary class="guide-header bca-bg">
+                        <span>Mobile Banking</span>
+                        <img src="../image/BCA.svg" alt="Logo BCA" class="logo">
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </summary>
+                    <div class="guide-content">
+                        <ol>
+                            <li>Buka aplikasi m-banking sesuai bank Anda</li>
+                            <li>Pilih menu Transfer ke Bank Lain</li>
+                            <li>Pilih bank tujuan: **BCA (kode bank 014)**</li>
+                            <li>Masukkan **Nomor Rekening BCA Tujuan**</li>
+                            <li>Masukkan Nominal Transfer</li>
+                            <li>Periksa detail penerima</li>
+                            <li>Konfirmasi dan masukkan PIN</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="guide-item">
+                    <summary class="guide-header bca-bg">
+                        <span>ATM</span>
+                        <img src="../image/BCA.svg" alt="Logo BCA" class="logo">
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </summary>
+                    <div class="guide-content">
+                        <ol>
+                            <li>Pilih menu **Transfer**</li>
+                            <li>Pilih tujuan **Bank BRI (kode 014)**</li>
+                            <li>Masukkan **Nomor Rekening BCA Tujuan**</li>
+                            <li>Masukkan Nominal Transfer</li>
+                            <li>Konfirmasi data</li>
+                            <li>Periksa detail penerima</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </div>
+    <footer>
+    <div class="footer-info">
+      <img src="../image/Xcode.png" alt="Logo Xcode Footer" class="logo-footer" />
+      <p class="deskripsi">
+        X-Code Training adalah layanan dari PT. Teknologi Server Indonesia, perseroan terbatas yang bergerak di bidang Cyber Security.
+      </p>
+    </div>
+
+    <div class="tautan">
+      <p><strong>TRAINING LINK</strong></p>
+      <a href="#">Website X-Code</a>
+      <a href="#">X-Code Professional</a>
+    </div>
+
+    <div class="kontak">
+      <p><strong>CONTACT US</strong></p>
+      <a href="https://wa.me/6285728917933"><i class="fa-brands fa-whatsapp"></i> +62 857 2891 7933</a>
+      <a href="mailto:admin@xcodetraining.com"><i class="fa-solid fa-envelope"></i> admin@xcodetraining.com</a>
+    </div>
+
+    <div class="copyright">
+      <p>Copyright © X-Code. All Rights Reserved.</p>
+      <p>Privacy Policy</p>
+    </div>
+  </footer>
+    <script src="../js/panduanpembayaran.js"></script>
+</body>
+</html>

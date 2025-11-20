@@ -143,3 +143,49 @@ async function fetchDetailProduk(id) {
 }
 
 fetchDetailProduk(id);
+
+// Redirect Tombol Beli ke Payment 
+(function () {
+  // fungsi helper ready
+  function ready(fn) {
+    if (document.readyState !== "loading") {
+      fn();
+    } else {
+      document.addEventListener("DOMContentLoaded", fn);
+    }
+  }
+
+  ready(() => {
+    try {
+      // gunakan id yang sudah didefinisikan sebelumnya di file ini
+      if (!id) return;
+
+      // fungsi attach dengan retry kecil, karena tombol mungkin dibuat/manipulasi oleh script lain
+      const attach = () => {
+        const tombol = document.querySelector(".tombol-beli");
+        if (!tombol) {
+          // coba lagi sampai 50 kali (50 * 50ms = 2500ms)
+          if ((attach._tries = (attach._tries || 0) + 1) < 50) {
+            setTimeout(attach, 50);
+          }
+          return;
+        }
+
+        // pastikan listener hanya dipasang sekali
+        if (tombol._hasBuyListener) return;
+        tombol._hasBuyListener = true;
+
+        tombol.addEventListener("click", (e) => {
+          e.preventDefault();
+          // redirect ke payment.html dengan query param id
+          window.location.href = `payment.html?id=${encodeURIComponent(id)}`;
+        });
+      };
+
+      attach();
+    } catch (err) {
+      // jangan ganggu fungsi lain jika error
+      console.warn("Buy-redirect error:", err);
+    }
+  });
+})();

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Profil - Xcode</title>
+  <link rel="stylesheet" href="../css/payment.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* 1. Memberi jarak dari header 'fixed' */
+    .checkout-layout {
+      padding-top: 80px; /* Sesuaikan 80px dengan tinggi header Anda */
+    }
+
+    /* 2. Membuat checkbox & tombol mengambil lebar penuh di dalam layout */
+    .checkout-layout .terms-agreement,
+    .checkout-layout .buy-button {
+      flex-basis: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-kiri">
+      <img src="../image/Xcode.png" alt="Logo Xcode" class="logo" />
+    </div>
+    <div class="header-kanan">
+      <nav>
+        <a href="filelist.html">Home</a>
+        <a href="historitransaksi.html">Histori Transaksi</a>
+      </nav>
+
+      <div class="bagian-profil">
+        <img src="../image/profile.png" alt="Foto Profil" class="foto-profil" />
+        <div class="detail-pengguna">
+          <p class="nama-pengguna">Glen Daud</p>
+          <p class="email-pengguna">glendaud@gmail.com</p>
+        </div>
+        <span class="panah-bawah"><i class="fa-solid fa-caret-down"></i></span>
+
+        <div class="dropdown-menu" id="dropdown">
+          <a href="filelist.html">Home</a>
+          <a href="historitransaksi.html">Histori Transaksi</a>
+          <a href="profile.html">Edit Profil</a>
+          <a href="#" id="logoutBtn">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <div class="checkout-layout">
+    
+    <div class="container">
+      <h2>Metode Pembayaran</h2>
+      <div class="payment-accordion">
+        <div class="accordion-item">
+            <button class="accordion-header">
+                <span class="bank-name">Rekening Bank BRI</span>
+                <span class="logo-arrow-wrapper">
+                    <img src="../image/BRI.svg" alt="BRI" class="bank-logo">
+                    <span class="arrow-down"></span>
+                </span>
+            </button>
+            <div class="accordion-content">
+                <div class="account-info">
+                    <span class="account-name">PT Teknologi Server Indonesia</span>
+                    <span class="account-number">024501003046300</span>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <button class="accordion-header">
+                <span class="bank-name">Rekening Bank BCA</span>
+                <span class="logo-arrow-wrapper">
+                    <img src="../image/bca.svg" alt="BCA" class="bank-logo">
+                    <span class="arrow-down"></span>
+                </span>
+            </button>
+            <div class="accordion-content">
+                <div class="account-info">
+                    <span class="account-name">PT Teknologi Server Indonesia</span>
+                    <span class="account-number">4452254135</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="order-summary-container">
+      <h2>Detail Pesanan</h2>
+        <div class="product-item">
+            <img src="../image/docker.png" alt="Cover Ebook" class="product-image">
+            
+            <div class="product-info">
+                <h3 class="product-title">Membangun Server Monolith dengan Docker dengan cepat dan mudah Panduan dari Instalasi hingga Deploy v2</h3>
+                <span class="product-meta">4 Materi | 2 Jam</span>
+                <span class="product-price">Rp. 200.000,00</span>
+            </div>
+        </div>
+        <div class="price-summary">
+            <div class="price-line">
+                <span>Harga</span>
+                <span>200.000,00</span>
+            </div>
+            <div class="price-line">
+                <span>Fee</span>
+                <span>2.000,00</span>
+            </div>
+            <hr class="divider">
+            <div class="price-line total">
+                <span>Total</span>
+                <span>202.000,00</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="terms-agreement">
+        <input type="checkbox" id="terms-check" checked>
+        <label for="terms-check">Dengan mengklik ini, Anda menyetujui <a href="#">Persyaratan Layanan</a> dan <a href="#">Kebijakan Privasi</a> kami.</label>
+    </div>
+    <button class="buy-button">Bayar</button>
+
+  </div> <footer>
+    <div class="footer-info">
+      <img src="../image/Xcode.png" alt="Logo Xcode Footer" class="logo-footer" />
+      <p class="deskripsi">
+        X-Code Training adalah layanan dari PT. Teknologi Server Indonesia, perseroan terbatas yang bergerak di bidang Cyber Security.
+      </p>
+    </div>
+
+    <div class="tautan">
+      <p><strong>TRAINING LINK</strong></p>
+      <a href="#">Website X-Code</a>
+      <a href="#">X-Code Professional</a>
+    </div>
+
+    <div class="kontak">
+      <p><strong>CONTACT US</strong></p>
+      <a href="https://wa.me/6285728917933"><i class="fa-brands fa-whatsapp"></i> +62 857 2891 7933</a>
+      <a href="mailto:admin@xcodetraining.com"><i class="fa-solid fa-envelope"></i> admin@xcodetraining.com</a>
+    </div>
+
+    <div class="copyright">
+      <p>Copyright © X-Code. All Rights Reserved.</p>
+      <p>Privacy Policy</p>
+    </div>
+  </footer>
+
+  <script src="../js/payment.js" type="module"></script>
+</body>
+</html>
