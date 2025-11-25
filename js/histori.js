@@ -1,83 +1,90 @@
-// ==================== DROPDOWN PROFIL ====================
-const panah = document.querySelector(".panah-bawah");
-const dropdown = document.getElementById("dropdown");
+const API_BASE_URL = window.API_ORIGIN || 'http://localhost:5000';
 
-panah.addEventListener("click", () => {
-  dropdown.style.display =
-    dropdown.style.display === "block" ? "none" : "block";
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof loadHeaderProfile === "function") loadHeaderProfile();
+  loadHistori();
 });
 
-window.addEventListener("click", (e) => {
-  if (!e.target.closest(".bagian-profil")) {
-    dropdown.style.display = "none";
-  }
-});
-
-// ==================== LOGOUT ====================
-const logoutBtn = document.getElementById("logoutBtn");
-logoutBtn.addEventListener("click", async (e) => {
-  e.preventDefault();
+async function loadHistori() {
+  const tableBody = document.getElementById('histori-table-body');
+  
   try {
-    const res = await fetch("http://localhost:5000/auth/logout", {
-      method: "POST",
-      credentials: "include",
+    const res = await fetch(`${API_BASE_URL}/api/histori`, {
+      method: 'GET',
+      credentials: 'include',
+      headers: {
+        'Content-Type': 'application/json',
+        ...(localStorage.getItem('token') ? { 
+          'Authorization': `Bearer ${localStorage.getItem('token')}` 
+        } : {})
+      }
     });
 
-    const data = await res.json();
-
-    if (data.statusCode === 200) {
-      localStorage.removeItem("profileImage"); // hapus cache foto
-      window.location.href = "login.html";
-    } else {
-      alert(data.message || "Gagal logout");
-    }
-  } catch (err) {
-    console.error(err);
-    window.location.href = "login.html";
-  }
-});
-
-// ==================== FUNGSI UTAMA HEADER ====================
-async function loadHeaderProfile() {
-  const fotoHeader = document.querySelector(".foto-profil");
-
-  try {
-    // 1️⃣ Ambil foto dari localStorage jika ada
-    const savedProfileImage = localStorage.getItem("profileImage");
-    if (savedProfileImage && fotoHeader) {
-      fotoHeader.src = savedProfileImage;
-    }
-
-    // 2️⃣ Ambil data user dari server (selalu untuk nama + email)
-    const res = await fetch("http://localhost:5000/api/profile", {
-      method: "GET",
-      credentials: "include",
-    });
-
+    // Handle error response (401 / 403)
     if (res.status === 401 || res.status === 403) {
-      alert("Silakan login terlebih dahulu!");
+      alert("Sesi Anda telah habis. Silakan login kembali.");
       window.location.href = "login.html";
       return;
     }
 
-    const data = await res.json();
+    // Jika bukan 200 OK → tampilkan pesan tanpa membaca body dua kali
+    if (!res.ok) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="7" style="text-align:center">
+            Gagal memuat data (status ${res.status})
+          </td>
+        </tr>`;
+      return;
+    }
 
-    // 3️⃣ Isi nama dan email
-    document.querySelector(".nama-pengguna").textContent =
-      `${data.user_first_name} ${data.user_last_name}`;
-    document.querySelector(".email-pengguna").textContent = data.user_email;
+    // Baca body hanya sekali
+    const json = await res.json();
+    console.log("Histori Data:", json);
 
-    // 4️⃣ Update foto profil (jika ada perubahan dari server)
-    const imageURL = data.user_image
-      ? `http://localhost:5000${data.user_image}`
-      : "../image/profile.png";
+    renderTable(json);
 
-    if (fotoHeader) fotoHeader.src = imageURL;
-    localStorage.setItem("profileImage", imageURL);
   } catch (err) {
-    console.warn("Gagal memuat data header:", err);
+    console.error("Error loadHistori:", err);
+    tableBody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align:center">
+          Gagal terhubung ke server. Pastikan backend jalan.
+        </td>
+      </tr>`;
   }
 }
 
-// Jalankan setelah halaman siap
-document.addEventListener("DOMContentLoaded", loadHeaderProfile);
+function renderTable(data) {
+  const tbody = document.getElementById('histori-table-body');
+  tbody.innerHTML = "";
+
+  if (!Array.isArray(data) || data.length === 0) {
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="7" style="text-align:center; padding: 20px;">
+          Belum ada riwayat transaksi
+        </td>
+      </tr>`;
+    return;
+  }
+
+  data.forEach(item => {
+    const tanggal = new Date(item.tanggal).toLocaleDateString('id-ID');
+    const harga = new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' })
+      .format(item.harga);
+
+    const row = `
+      <tr>
+        <td>${tanggal}</td>
+        <td>${item.namaProduk || '-'}</td>
+        <td>${harga}</td>
+        <td>${item.status}</td>
+        <td>${item.metodepembayaran}</td>
+        <td>${item.buktiupload ? 'Sudah Upload' : 'Belum Upload'}</td>
+        <td>-</td>
+      </tr>`;
+    
+    tbody.innerHTML += row;
+  });
+}

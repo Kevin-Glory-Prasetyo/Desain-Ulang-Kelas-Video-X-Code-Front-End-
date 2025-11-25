@@ -43,72 +43,150 @@
     <section class="payment-column">
       <h2>Metode Pembayaran</h2>
       
-      <div class="accordion-item white-card">
-        <button class="accordion-header" type="button">
-          <span class="bank-name">Bank BRI</span>
-          <span class="logo-arrow-wrapper">
-            <img src="../image/BRI.svg" alt="BRI" class="bank-logo">
-          </span>
-        </button>
-        <div class="accordion-content">
-          <div class="account-info">
-            <span class="account-name">PT Teknologi Server Indonesia</span>
-            <span class="account-number">024501003046300</span>
+      <div class="bank-selection-container">
+        
+        <div class="white-card payment-method-card" id="card-bri" data-name="Bank BRI">
+          <div class="card-header-top">
+            <span class="bank-label">Bank BRI</span>
+            <img src="../image/BRI.svg" alt="BRI" class="bank-logo-small">
+          </div>
+          <div class="card-details">
+            <p class="pt-name">PT Teknologi Server Indonesia</p>
+            <p class="rek-number">024501003046300</p>
+            <p class="click-hint">Klik untuk lihat panduan</p>
           </div>
         </div>
+
+        <div class="white-card payment-method-card" id="card-bca" data-name="Bank BCA">
+          <div class="card-header-top">
+            <span class="bank-label">Bank BCA</span>
+            <img src="../image/bca.svg" alt="BCA" class="bank-logo-small">
+          </div>
+          <div class="card-details">
+            <p class="pt-name">PT Teknologi Server Indonesia</p>
+            <p class="rek-number">4452254135</p>
+            <p class="click-hint">Klik untuk lihat panduan</p>
+          </div>
+        </div>
+
       </div>
 
-      <div class="accordion-item white-card">
-        <button class="accordion-header" type="button">
-          <span class="bank-name">Bank BCA</span>
-          <span class="logo-arrow-wrapper">
-            <img src="../image/bca.svg" alt="BCA" class="bank-logo">
-          </span>
-        </button>
-        <div class="accordion-content">
-          <div class="account-info">
-            <span class="account-name">PT Teknologi Server Indonesia</span>
-            <span class="account-number">4452254135</span>
-          </div>
+      <div class="payment-instruction-section" id="instruction-section" style="display: none;">
+        <h2>Panduan Pembayaran</h2>
+
+        <div id="guide-bri" class="guide-content" style="display: none;">
+          <details class="instruction-item">
+            <summary>
+              <div class="summary-content">
+                <span>Mobile Banking BRI</span>
+                <!-- <img src="../image/BRI.svg" alt="logo" class="mini-logo"> -->
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="instruction-body">
+              <ol>
+                <li>Buka aplikasi m-banking BRI (BRImo)</li>
+                <li>Pilih menu **Transfer**</li>
+                <li>Pilih **Tambah Daftar Baru**</li>
+                <li>Pilih Bank Tujuan: **BRI**</li>
+                <li>Masukkan **Nomor Rekening Tujuan** (024501003046300)</li>
+                <li>Masukkan Nominal Transfer</li>
+                <li>Konfirmasi dan masukkan PIN</li>
+              </ol>
+            </div>
+          </details>
+          
+          <details class="instruction-item">
+            <summary>
+              <div class="summary-content">
+                <span>ATM BRI</span>
+                <!-- <img src="../image/BRI.svg" alt="logo" class="mini-logo"> -->
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="instruction-body">
+              <ol>
+                <li>Masukkan Kartu ATM dan PIN</li>
+                <li>Pilih menu **Transaksi Lain** > **Transfer**</li>
+                <li>Pilih tujuan **Sesama BRI**</li>
+                <li>Masukkan **Nomor Rekening Tujuan** (024501003046300)</li>
+                <li>Masukkan Nominal Transfer</li>
+                <li>Konfirmasi data</li>
+              </ol>
+            </div>
+          </details>
         </div>
+
+        <div id="guide-bca" class="guide-content" style="display: none;">
+          <details class="instruction-item">
+            <summary>
+              <div class="summary-content">
+                <span>Mobile Banking</span>
+                <!-- <img src="../image/bca.svg" alt="logo" class="mini-logo"> -->
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="instruction-body">
+              <ol>
+                <li>Buka aplikasi BCA Mobile > m-BCA</li>
+                <li>Pilih menu **m-Transfer** > **Antar Rekening**</li>
+                <li>Masukkan **Nomor Rekening Tujuan** (4452254135)</li>
+                <li>Pastikan penerima a.n **PT Teknologi Server Indonesia**</li>
+                <li>Masukkan Nominal Transfer</li>
+                <li>Konfirmasi dan masukkan PIN</li>
+              </ol>
+            </div>
+          </details>
+
+          <details class="instruction-item">
+            <summary>
+              <div class="summary-content">
+                <span>ATM BCA</span>
+                <img src="../image/bca.svg" alt="logo" class="mini-logo">
+              </div>
+              <i class="fa-solid fa-chevron-down"></i>
+            </summary>
+            <div class="instruction-body">
+              <ol>
+                <li>Masukkan Kartu ATM dan PIN</li>
+                <li>Pilih menu **Transaksi Lainnya** > **Transfer**</li>
+                <li>Pilih tujuan **Ke Rekening BCA**</li>
+                <li>Masukkan **Nomor Rekening Tujuan** (4452254135)</li>
+                <li>Masukkan Nominal Transfer</li>
+                <li>Konfirmasi data</li>
+              </ol>
+            </div>
+          </details>
+        </div>
+
       </div>
     </section>
 
     <aside class="summary-column">
       <h2>Detail Pesanan</h2>
 
-      <!-- area ini akan diisi oleh js/payment.js -->
       <div class="white-card">
         <div class="product-item">
-          <!-- product-image class digunakan oleh payment.js -->
           <img src="../image/docker.png" alt="Cover Produk" class="product-image">
-
           <div class="product-info">
-            <!-- product-title digunakan oleh payment.js -->
             <h3 class="product-title">Loading produk...</h3>
-            <!-- product-meta digunakan oleh payment.js (jumlah materi | durasi) -->
-            <span class="product-meta">-</span>
-            <!-- product-price digunakan oleh payment.js -->
-            <span class="product-price">-</span>
+            <span class="product-meta"></span>
+            <span class="product-price"></span>
           </div>
         </div>
 
-        <!-- price-summary: struktur mudah diparsing oleh payment.js -->
         <div class="price-summary" aria-live="polite">
           <div class="price-line">
             <span>Harga</span>
-            <!-- value-harga akan diisi -->
             <span class="price-value price-harga">-</span>
           </div>
           <div class="price-line">
             <span>Fee</span>
-            <!-- value-fee akan diisi -->
             <span class="price-value price-fee">-</span>
           </div>
           <hr class="divider">
           <div class="price-line total">
             <span>Total</span>
-            <!-- value-total akan diisi -->
             <span class="price-value price-total">-</span>
           </div>
         </div>
@@ -150,7 +228,6 @@
     </div>
   </footer>
 
-  <!-- gunakan type=module seperti yang sudah Anda panggil -->
   <script src="../js/payment.js" type="module"></script>
 </body>
 </html>

@@ -1,13 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* ================= GLOBAL ================= */
-* {
-  box-sizing: border-box;
-}
+/* ================= 1. GLOBAL & RESET ================= */
+* { box-sizing: border-box; }
 
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
   background-color: #f0f2f5; /* Background abu-abu muda */
@@ -15,307 +12,207 @@ html, body {
 }
 
 h2 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 15px;
-  margin-top: 0;
+  font-size: 1.25rem; font-weight: 700; color: #000;
+  margin-bottom: 15px; margin-top: 0;
 }
 
-/* ================= HEADER ================= */
+/* ================= 2. HEADER ================= */
 header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 50px;
-  background-color: white;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 50px; background-color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: fixed; z-index: 100; top: 0; left: 0; right: 0;
   height: 70px;
 }
 
-.header-kiri, .header-kanan {
-  display: flex;
-  align-items: center;
-}
+.header-kiri, .header-kanan { display: flex; align-items: center; }
+.logo { height: 35px; margin-right: 20px; }
 
-.logo {
-  height: 35px;
-  margin-right: 20px;
-}
+nav { display: flex; gap: 25px; }
+nav a { text-decoration: none; color: black; font-size: 16px; font-weight: 500; }
 
-nav {
-  display: flex;
-  gap: 25px;
-}
-
-nav a {
-  text-decoration: none;
-  color: black;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-/* Profil & Dropdown */
+/* --- Profil & Dropdown --- */
 .bagian-profil {
-  display: flex;
-  align-items: center;
-  border-left: 1px solid #ddd;
-  padding-left: 25px;
-  margin-left: 25px;
-  position: relative;
-  cursor: pointer;
+  display: flex; align-items: center; border-left: 1px solid #ddd;
+  padding-left: 25px; margin-left: 25px; position: relative; cursor: pointer;
 }
-
-.foto-profil {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 15px;
-}
-
+.foto-profil { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; margin-right: 15px; }
 .detail-pengguna p { margin: 0; line-height: 1.3; }
 .nama-pengguna { font-weight: 600; font-size: 14px; color: black; }
 .email-pengguna { font-size: 12px; color: #777; }
 .panah-bawah { margin-left: 15px; color: black; font-size: 14px; }
 
 .dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 55px;
-  right: 0;
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-  min-width: 180px;
-  overflow: hidden;
-  z-index: 101;
+  display: none; position: absolute; top: 55px; right: 0;
+  background: white; border: 1px solid #ddd; border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.1); min-width: 180px; overflow: hidden; z-index: 101;
 }
-
 .dropdown-menu a {
-  display: block;
-  padding: 10px 15px;
-  text-decoration: none;
-  color: black;
-  font-size: 14px;
-  transition: background 0.3s;
+  display: block; padding: 10px 15px; text-decoration: none;
+  color: black; font-size: 14px; transition: background 0.3s;
 }
 .dropdown-menu a:hover { background: #f0f0f0; }
 
-
-/* ================= MAIN LAYOUT ================= */
+/* ================= 3. LAYOUT UTAMA ================= */
 .checkout-layout {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 100px;
-  align-items: flex-start; /* Kunci agar layout sejajar di atas */
+  display: flex; flex-wrap: wrap; gap: 40px;
+  width: 90%; max-width: 1200px; margin: 0 auto;
+  padding-top: 100px; align-items: flex-start;
 }
 
-.payment-column {
-  flex: 1.4;
-  min-width: 320px;
-}
+.payment-column { flex: 1.4; min-width: 320px; }
+.summary-column { flex: 1; min-width: 320px; }
 
-.summary-column {
-  flex: 1;
-  min-width: 320px;
-}
-
-/* Style Kartu Putih (Card) */
+/* --- Utility: Kartu Putih --- */
 .white-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 24px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-  margin-bottom: 16px;
-  overflow: hidden;
+  background-color: #ffffff; border-radius: 8px; padding: 24px;
+  border: 1px solid #e0e0e0; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom: 16px; overflow: hidden;
 }
 
-/* Reset padding khusus item accordion */
-.accordion-item.white-card {
-  padding: 0; 
+/* ================= 4. METODE PEMBAYARAN (KARTU BANK) ================= */
+
+/* Container Kartu */
+.bank-selection-container {
+  display: flex; gap: 20px; margin-bottom: 30px;
 }
 
-/* ================= KOMPONEN: ACCORDION ================= */
-.accordion-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 20px;
-  background-color: #ffffff;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #333;
-}
-.accordion-header:hover { background-color: #fafafa; }
-
-.logo-arrow-wrapper { display: flex; align-items: center; }
-.bank-logo { height: 40px; margin-right: 16px; object-fit: contain; }
-
-.arrow-down {
-  width: 8px; height: 8px;
-  border: solid #555; border-width: 0 2px 2px 0;
-  transform: rotate(45deg); transition: transform 0.3s ease;
+/* Style Default Kartu Bank */
+.payment-method-card {
+  flex: 1; cursor: pointer;
+  border: 1px solid #e0e0e0; transition: all 0.3s ease;
+  position: relative; min-width: 280px;
 }
 
-.accordion-content {
-  max-height: 0; overflow: hidden;
-  transition: max-height 0.3s ease-out;
-  background-color: #f9f9f9;
+.payment-method-card:hover {
+  border-color: #3b5580; box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.account-info {
+/* Style KARTU AKTIF (Saat dipilih) */
+.payment-method-card.active {
+  border: 2px solid #1a73e8; /* Biru terang */
+  background-color: #f0f7ff; /* Biru sangat muda */
+}
+
+/* Header dalam kartu */
+.card-header-top {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;
+}
+.bank-label { font-weight: 700; font-size: 1.05rem; }
+.bank-logo-small { height: 25px; width: auto; }
+
+/* Detail Teks dalam kartu */
+.card-details p { margin: 0; line-height: 1.5; }
+.pt-name { font-size: 0.85rem; color: #666; }
+.rek-number {
+  font-size: 1.1rem; font-weight: 700; color: #333;
+  margin-top: 5px !important; letter-spacing: 0.5px;
+}
+.click-hint {
+  font-size: 0.75rem; color: #1a73e8;
+  margin-top: 10px !important; font-weight: 500;
+}
+
+/* ================= 5. PANDUAN PEMBAYARAN (INSTRUCTIONS) ================= */
+.payment-instruction-section {
+  margin-top: 20px; animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Item Accordion (Details) */
+.instruction-item {
+  background: white; border: 1px solid #e0e0e0; border-radius: 8px;
+  margin-bottom: 10px; overflow: hidden;
+}
+
+/* Header Accordion */
+.instruction-item summary {
+  padding: 15px 20px; cursor: pointer; list-style: none;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 20px; border-top: 1px solid #eee;
-  font-size: 0.9rem; flex-wrap: wrap; gap: 8px;
+  background-color: #f8f9fa; font-weight: 600; transition: background 0.2s;
 }
-.account-name { color: #555; }
-.account-number { color: #333; font-weight: 600; letter-spacing: 0.5px; }
+.instruction-item summary:hover { background-color: #eee; }
+.instruction-item summary::-webkit-details-marker { display: none; } /* Hilangkan panah default */
 
-.accordion-item.active .accordion-content { max-height: 200px; }
-.accordion-item.active .arrow-down { transform: rotate(-135deg); }
+/* Isi Ringkasan */
+.summary-content { display: flex; align-items: center; gap: 10px; }
+.mini-logo { height: 20px; width: auto; }
 
-
-/* ================= KOMPONEN: DETAIL PESANAN ================= */
-.product-item {
-  display: flex; gap: 16px; align-items: flex-start;
+/* Style saat Accordion TERBUKA (Open) */
+.instruction-item[open] summary {
+  border-bottom: 1px solid #e0e0e0; background-color: #f0f7ff; color: #1a73e8;
+}
+.instruction-item[open] .fa-chevron-down {
+  transform: rotate(180deg); transition: transform 0.3s;
 }
 
+/* Konten Langkah-langkah */
+.instruction-body {
+  padding: 20px; background-color: #fff; font-size: 0.9rem; color: #444;
+}
+.instruction-body ol { margin: 0; padding-left: 20px; }
+.instruction-body li { margin-bottom: 8px; }
+
+
+/* ================= 6. SIDEBAR: DETAIL PESANAN ================= */
+.product-item { display: flex; gap: 16px; align-items: flex-start; }
 .product-image {
-  width: 90px; height: 65px;
-  border-radius: 6px; object-fit: cover; border: 1px solid #eee;
+  width: 90px; height: 65px; border-radius: 6px;
+  object-fit: cover; border: 1px solid #eee;
 }
-
 .product-info { display: flex; flex-direction: column; gap: 5px; }
 .product-title { font-size: 0.9rem; font-weight: 600; color: #333; margin: 0; line-height: 1.4; }
 .product-meta { font-size: 0.85rem; color: #777; }
 .product-price { font-weight: 700; color: #333; margin-top: 5px; }
 
-.price-summary {
-  margin-top: 24px; display: flex; flex-direction: column; gap: 12px;
-}
+/* Rincian Harga */
+.price-summary { margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+.price-line { display: flex; justify-content: space-between; font-size: 0.95rem; color: #555; }
+.price-line.total { font-size: 1.1rem; font-weight: 700; color: #333; margin-top: 10px; }
+.divider { border: none; height: 1px; background-color: #333; margin: 10px 0; }
 
-.price-line {
-  display: flex; justify-content: space-between; font-size: 0.95rem; color: #555;
-}
-
-.price-line.total {
-  font-size: 1.1rem; font-weight: 700; color: #333; margin-top: 10px;
-}
-
-.divider {
-  border: none; height: 1px; background-color: #333; margin: 10px 0;
-}
-
-
-/* ================= KOMPONEN: TOMBOL & SYARAT ================= */
+/* Checkbox & Tombol */
 .terms-agreement {
-  margin-top: 5px;
-  display: flex; align-items: flex-start; gap: 10px;
+  margin-top: 5px; display: flex; align-items: flex-start; gap: 10px;
   font-size: 0.85rem; color: #555;
 }
-.terms-agreement input[type="checkbox"] {
-  margin-top: 3px; width: 18px; height: 18px; cursor: pointer;
-}
-.terms-agreement a {
-  color: #3b5998; text-decoration: none; font-weight: 600;
-}
+.terms-agreement input[type="checkbox"] { margin-top: 3px; width: 18px; height: 18px; cursor: pointer; }
+.terms-agreement a { color: #3b5998; text-decoration: none; font-weight: 600; }
 
 .buy-button {
-  width: 100%;
-  padding: 16px;
-  font-size: 1.1rem; font-weight: 700;
-  color: #ffffff;
-  background-color: #3b5580;
-  border: none; border-radius: 8px;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
+  width: 100%; padding: 16px; font-size: 1.1rem; font-weight: 700;
+  color: #ffffff; background-color: #3b5580;
+  border: none; border-radius: 8px; cursor: pointer;
+  margin-top: 20px; transition: background-color 0.3s ease;
 }
 .buy-button:hover { background-color: #2d4373; }
 .buy-button:disabled { background-color: #cccccc; cursor: not-allowed; opacity: 0.8; }
 
-
-/* ================= FOOTER ================= */
+/* ================= 7. FOOTER ================= */
 footer {
-  background-color: #3B5580;
-  color: white;
-  padding: 50px 80px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 40px;
-  margin-top: 80px;
+  background-color: #3B5580; color: white; padding: 50px 80px;
+  display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-top: 80px;
 }
-
-.logo-footer {
-  width: 150px; background-color: white;
-  padding: 10px; border-radius: 5px; margin-bottom: 15px;
-}
-.deskripsi {
-  font-size: 14px; line-height: 1.8; color: #e0e0e0; max-width: 400px;
-}
-
+.logo-footer { width: 150px; background-color: white; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+.deskripsi { font-size: 14px; line-height: 1.8; color: #e0e0e0; max-width: 400px; }
 footer .tautan, footer .kontak { margin-top: 10px; }
 footer p { margin-top: 0; margin-bottom: 20px; }
-
 footer a {
-  display: flex; align-items: center; gap: 10px;
-  margin-bottom: 15px; font-size: 14px; color: white;
-  text-decoration: none; transition: color 0.3s;
+  display: flex; align-items: center; gap: 10px; margin-bottom: 15px;
+  font-size: 14px; color: white; text-decoration: none; transition: color 0.3s;
 }
 footer a:hover { color: #cccccc; }
 footer .fa-whatsapp { color: #25D366; }
 footer .fa-envelope { color: #d44638; }
-
 .copyright {
-  grid-column: 1 / -1;
-  display: flex; justify-content: space-between;
-  padding-top: 20px; margin-top: 20px;
-  border-top: 1px solid #5a739d;
-  font-size: 13px;
+  grid-column: 1 / -1; display: flex; justify-content: space-between;
+  padding-top: 20px; margin-top: 20px; border-top: 1px solid #5a739d; font-size: 13px;
 }
 .copyright p { margin: 0; }
-
-
-/* ================= RESPONSIVE ================= */
-@media (max-width: 992px) {
-  footer { grid-template-columns: 1fr 1fr; }
-  .footer-info { grid-column: 1 / -1; }
-}
-
-@media (max-width: 900px) {
-  .checkout-layout {
-    flex-direction: column;
-    width: 95%;
-  }
-  .payment-column, .summary-column {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  header { padding: 10px 20px; }
-  nav, .detail-pengguna { display: none; }
-  footer { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
-  .deskripsi, .logo-footer { margin-left: auto; margin-right: auto; }
-  footer a { justify-content: center; }
-  .copyright { flex-direction: column; align-items: center; gap: 10px; }
-}
 
 /* Animasi Footer */
 @keyframes fadeInGrow {
@@ -329,3 +226,26 @@ footer .deskripsi { animation-delay: 0.3s; }
 footer .tautan { animation-delay: 0.6s; }
 footer .kontak { animation-delay: 0.9s; }
 footer .copyright { animation-delay: 1.2s; }
+
+/* ================= 8. RESPONSIVE ================= */
+@media (max-width: 992px) {
+  footer { grid-template-columns: 1fr 1fr; }
+  .footer-info { grid-column: 1 / -1; }
+}
+
+@media (max-width: 900px) {
+  .checkout-layout { flex-direction: column; width: 95%; }
+  .payment-column, .summary-column { width: 100%; }
+}
+
+@media (max-width: 768px) {
+  header { padding: 10px 20px; }
+  nav, .detail-pengguna { display: none; }
+  footer { grid-template-columns: 1fr; text-align: center; padding: 40px 20px; }
+  .deskripsi, .logo-footer { margin-left: auto; margin-right: auto; }
+  footer a { justify-content: center; }
+  .copyright { flex-direction: column; align-items: center; gap: 10px; }
+  
+  /* Stack kartu bank di HP */
+  .bank-selection-container { flex-direction: column; }
+}
