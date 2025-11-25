@@ -197,7 +197,7 @@ footer {
   background-color: #3B5580; color: white; padding: 50px 80px;
   display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-top: 80px;
 }
-.logo-footer { width: 150px; background-color: white; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+.logo-footer { width: 250px; background-color: white; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
 .deskripsi { font-size: 14px; line-height: 1.8; color: #e0e0e0; max-width: 400px; }
 footer .tautan, footer .kontak { margin-top: 10px; }
 footer p { margin-top: 0; margin-bottom: 20px; }

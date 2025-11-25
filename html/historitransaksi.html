@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="../css/histori.css" />
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
 
 </head>
 <body>
@@ -117,38 +119,5 @@
   <!-- SCRIPT ============================================================ -->
 
   <script src="../js/histori.js" type="module"></script>
-
-  <!-- Dropdown simple -->
-  <script>
-    document.addEventListener("click", (e) => {
-      const menu = document.getElementById("dropdown");
-      const profile = document.querySelector(".bagian-profil");
-
-      if (profile.contains(e.target)) {
-        menu.style.display =
-          menu.style.display === "block" ? "none" : "block";
-      } else {
-        menu.style.display = "none";
-      }
-    });
-  </script>
-
-  <!-- Search filter -->
-  <script>
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("input", function () {
-      const q = this.value.trim().toLowerCase();
-      const rows = document.querySelectorAll("#histori-table-body tr");
-
-      rows.forEach((row) => {
-        const nama = row.cells[1].textContent.toLowerCase();
-        const metode = row.cells[4].textContent.toLowerCase();
-
-        row.style.display =
-          nama.includes(q) || metode.includes(q) ? "" : "none";
-      });
-    });
-  </script>
-
 </body>
 </html>

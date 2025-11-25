@@ -204,3 +204,79 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBankSelection();
   setupPaymentAction();
 });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const res = await fetch("http://localhost:5000/auth/filelist", {
+      method: "GET",
+      credentials: "include",
+    });
+
+    if (res.status === 401 || res.status === 403) {
+      window.location.href = "login.html";
+      return;
+    }
+
+    const data = await res.json();
+
+    if (res.ok && data.user) {
+      const namaPengguna = document.querySelector(".nama-pengguna");
+      const emailPengguna = document.querySelector(".email-pengguna");
+
+      namaPengguna.textContent = `${data.user.first_name} ${data.user.last_name}`;
+      emailPengguna.textContent = data.user.email;
+
+      console.log("Data user:", data.user);
+    } else {
+      alert(data.message || "Terjadi kesalahan");
+    }
+  } catch (err) {
+    console.error("Fetch gagal:", err);
+    window.location.href = "login.html";
+  }
+
+  // ==================== FOTO PROFIL HEADER ====================
+  // Ambil dari localStorage (jika sudah tersimpan saat edit profile)
+  const savedProfileImage = localStorage.getItem("profileImage");
+  if (savedProfileImage) {
+    const fotoHeader = document.querySelector(".foto-profil");
+    if (fotoHeader) {
+      fotoHeader.src = savedProfileImage;
+    }
+  } else {
+    // Jika belum ada di localStorage, ambil dari API profil
+    try {
+      const resProfile = await fetch("http://localhost:5000/api/profile", {
+        method: "GET",
+        credentials: "include",
+      });
+      if (resProfile.ok) {
+        const dataProfile = await resProfile.json();
+        const fotoHeader = document.querySelector(".foto-profil");
+        const imageURL = dataProfile.user_image
+          ? `http://localhost:5000${dataProfile.user_image}`
+          : "../image/profile.png";
+
+        if (fotoHeader) fotoHeader.src = imageURL;
+        localStorage.setItem("profileImage", imageURL);
+      }
+    } catch (err) {
+      console.warn("Gagal memuat foto profil header:", err);
+    }
+  }
+});
+
+// ==================== DROPDOWN PROFIL ====================
+const panah = document.querySelector(".panah-bawah");
+const dropdown = document.getElementById("dropdown");
+
+panah.addEventListener("click", () => {
+  dropdown.style.display =
+    dropdown.style.display === "block" ? "none" : "block";
+});
+
+window.addEventListener("click", (e) => {
+  if (!e.target.closest(".bagian-profil")) {
+    dropdown.style.display = "none";
+  }
+});
